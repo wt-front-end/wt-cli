@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-10 16:12:56
+ * @LastEditTime: 2023-01-10 18:39:28
  */
 'use strict';
 
@@ -67,8 +67,10 @@ checkUpdate().then(async () => {
   program.on('--help', function () {
     console.log('')
     console.log('Examples:');
-    log.info('  $ wt -v');
-    log.info('  $ wt s 天气');
+    log.info('获取版本信息  $ wt -v');
+    log.info('搜索内容  $ wt s 杭州到北京多远');
+    log.info('当前天气  $ wt w');
+    log.info('启动http服务  $ wt h');
   });
 
   // 定义命令
