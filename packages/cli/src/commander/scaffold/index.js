@@ -3,42 +3,45 @@
  * @Author: superDragon
  * @Date: 2019-08-30 11:21:05
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-11 09:47:29
+ * @LastEditTime: 2023-01-11 14:11:50
  */
 'use strict';
-
 // init 安装脚手架命令
 // const init = require('./action');
+// build 快捷打包
+const buildServer = require('./build');
 // weather 天气
-const weather = require('./weather');
+const weatherServer = require('./weather');
 // 搜索
-const serach = require('./serach');
+const serachServer = require('./serach');
 // http
 const httpServer = require('./http');
 // 提示文件
 const locals = require('../../locals')();
 
-module.exports = function (program) {
-
-  // define init command
-  // program
-  //   .command('init')
-  //   .description(locals.INIT_DESC)
-  //   .option('-f, --force', locals.INIT_OPTION_FORCE)
-  //   .action((cmd,options) => init({
-  //     cmd: cmd,
-  //     force: options.force
-  //   }));
-
-  // 天气
+// 定义build命令
+exports.build = function(program) {
+  program
+    .command('build [cmd]')
+    .description(locals.BUILD_DESC)
+    .alias('b')
+    .action((cmd) => buildServer({
+      cmd: cmd
+    }));
+}
+// 定义weather命令
+exports.weather = function(program) {
   program
     .command('weather [address]')
     .description(locals.WEATHER_DESC)
     .alias('w')
-    .action((address) => weather({
+    .action((address) => weatherServer({
       address: address
     }));
-  // 搜索
+}
+
+// 定义serach命令
+exports.serach = function(program) {
   program
     .command('serach [q]')
     .description(locals.SERACH_DESC)
@@ -47,11 +50,14 @@ module.exports = function (program) {
     .option('-g, --google [type]', locals.GOOGLE_DESC)
     .option('-s, --sougou [type]', locals.SOUGOU_DESC)
     .option('-t, --github [type]', locals.GITHUB_DESC)
-    .action((q, type) => serach({
+    .action((q, type) => serachServer({
       q: q,
       type: type
     }));
-  // http服务
+}
+
+// 定义http命令
+exports.http = function(program) {
   program
     .command('http [path]')
     .description(locals.HTTP_DESC)
@@ -59,12 +65,12 @@ module.exports = function (program) {
     .option('-p, --port [port]', locals.HTTP_PORT)
     .option('-o, --open [open]', locals.HTTP_OPEN)
     .option('-d, --dir [dir]', locals.HTTP_URL)
-    .action((path,options) => {
-      let server = new httpServer({
-        port: options.port,
-        open: options.port,
-        dir: path || options.dir,
-      })
-      server.start();
+    .action((path, options) => {
+        let server = new httpServer({
+          port: options.port,
+          open: options.port,
+          dir: path || options.dir,
+        })
+        server.start();
     });
-};
+}

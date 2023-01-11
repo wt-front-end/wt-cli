@@ -1,16 +1,17 @@
 /*
- * @describe: 描述
+ * @describe: utils tools
  * @Author: superDragon
  * @Date: 2019-08-29 17:51:58
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-10 16:57:59
+ * @LastEditTime: 2023-01-11 13:26:00
  */
 const dns = require('dns');
 const os = require('os');
 const fs = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
-const child_process = require('child_process');
+const interfaces = require('os').networkInterfaces();
+const child_process = require('mz/child_process');
 /**
  * 检测当前网络环境
  *
@@ -61,3 +62,40 @@ exports.openURL = function (url) {
   }
   console.log(chalk.green('链接已经打开,请在浏览器查看:') + '\n' + chalk.yellow(url))
 };
+
+/**
+ * 获取IP
+ *
+ * @return {string} IP
+ */
+exports.getIPAdress = function (url) {
+  for (var devName in interfaces) {
+    var iface = interfaces[devName];
+    for (var i = 0; i < iface.length; i++) {
+      var alias = iface[i];
+      if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+        return alias.address;
+      }
+    }
+  }
+};
+
+/**
+ * 获取IP
+ *
+ * @return {boolean} 是否存在
+ */
+
+exports.cmdExists = function (cmd) {
+  try {
+    child_process.execSync(
+      os.platform() === 'win32'
+        ? `cmd /c "(help ${cmd} > nul || exit 0) && where ${cmd} > nul 2> nul"`
+        : `command -v ${cmd}`,
+    )
+    return true
+  }
+  catch {
+    return false
+  }
+}

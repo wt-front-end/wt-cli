@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-11 09:46:10
+ * @LastEditTime: 2023-01-11 14:12:48
  */
 'use strict';
 
@@ -15,7 +15,7 @@ const exec = require('mz/child_process').exec;
 const execSync = require('mz/child_process').execSync;
 const locals = require('../locals')();
 const log = require('../lib/utils/log');
-const initCommand = require('./scaffold');
+const { build, weather, serach, http} = require('./scaffold');
 // 检查版本更新方法
 const checkUpdate = require('../lib/utils/checkUpdate');
 
@@ -61,7 +61,6 @@ checkUpdate().then(async () => {
       console.groupEnd();
       console.group(locals.DOC_LINK);
       console.table(tableInfo, [locals.DOC, locals.LINK]);
-      console.groupEnd();
     }
   }
   program.on('--help', function () {
@@ -96,8 +95,11 @@ checkUpdate().then(async () => {
       }
     });
 
-  // init
-  initCommand(program);
+  // 命令
+  build(program);
+  weather(program);
+  serach(program);
+  http(program);
 
   program.parse(process.argv);
 });
