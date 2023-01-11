@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-30 14:18:24
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-10 10:37:17
+ * @LastEditTime: 2023-01-11 09:24:04
  */
 /**
  * 检测是否需要更新版本
@@ -22,7 +22,7 @@ const locals = require('../../locals')();
 const getHome = require('./index').getHome;
 
 const TIME_RANGE = 24 * 60 * 60 * 1000;
-const NPM_REGISTRY = 'https://registry.npm.taobao.org/wt-cli';
+const NPM_REGISTRY = 'https://registry.npmmirror.com/@watone/wt-cli';
 
 
 async function requestPackageInfo () {

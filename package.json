@@ -3,10 +3,17 @@
   "version": "1.0.0",
   "description": "watone tools",
   "bin": {
-    "wt": "bin/wt-cli.js"
+    "wt": "bin/wt-cli.js",
+    "h": "bin/h-cli.js",
+    "v": "bin/v-cli.js",
+    "i": "bin/i-cli.js",
+    "b": "bin/b-cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "patch": "npm version patch",
+    "minor": "npm version minor",
+    "major": "npm version major"
   },
   "keywords": [
     "cli",

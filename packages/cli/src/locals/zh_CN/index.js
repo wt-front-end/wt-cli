@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:49:22
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-10 18:37:07
+ * @LastEditTime: 2023-01-11 09:39:45
  */
 
 module.exports = {
@@ -29,6 +29,7 @@ module.exports = {
   HTTP_PORT:'启动服务端口',
   HTTP_OPEN:'是否打开浏览器',
   HTTP_URL:'启动目录',
+  HELP:'帮助信息',
   WEATHER:'天气服务',
   WEATHER_DESC:'默认获取当前地区的天气数据',
   TIME:'时间转换',

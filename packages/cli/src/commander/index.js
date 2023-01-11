@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-10 18:39:28
+ * @LastEditTime: 2023-01-11 09:46:10
  */
 'use strict';
 
@@ -20,13 +20,13 @@ const initCommand = require('./scaffold');
 const checkUpdate = require('../lib/utils/checkUpdate');
 
 let version = process.env.VERSION;
-let tableVersion =[
-  { name : "wt", version : version },
-  { name : "git", version : execSync('git --version', {encoding: 'utf8'}).replace(/\n/g, "")},
-  { name : "node", version : execSync('node -v', {encoding: 'utf8'}).replace(/\n/g, "")},
-  { name : "npm", version : execSync('npm -v', {encoding: 'utf8'}).replace(/\n/g, "")},
-  { name : "yarn", version : execSync('yarn -v', {encoding: 'utf8'}).replace(/\n/g, "")},
-  { name : "pnpm", version : execSync('pnpm -v', {encoding: 'utf8'}).replace(/\n/g, "")}
+let tableVersion = [
+  { name: "wt", version: version },
+  { name: "git", version: execSync('git --version', { encoding: 'utf8' }).replace(/\n/g, "") },
+  { name: "node", version: execSync('node -v', { encoding: 'utf8' }).replace(/\n/g, "") },
+  { name: "npm", version: execSync('npm -v', { encoding: 'utf8' }).replace(/\n/g, "") },
+  { name: "yarn", version: execSync('yarn -v', { encoding: 'utf8' }).replace(/\n/g, "") },
+  { name: "pnpm", version: execSync('pnpm -v', { encoding: 'utf8' }).replace(/\n/g, "") }
 ]
 let tableInfo = [
   { [locals.DOC]: "说明文档", [locals.LINK]: "" },
@@ -65,8 +65,7 @@ checkUpdate().then(async () => {
     }
   }
   program.on('--help', function () {
-    console.log('')
-    console.log('Examples:');
+    console.group('Examples:');
     log.info('获取版本信息  $ wt -v');
     log.info('搜索内容  $ wt s 杭州到北京多远');
     log.info('当前天气  $ wt w');
@@ -78,7 +77,7 @@ checkUpdate().then(async () => {
     // 设置/获取命令用法str
     .usage('[commands] [options]')
     // 定义顶级命令的参数语法。
-    .arguments('<cmd> [env]')
+    .arguments('[cmd]')
     .option('b, build', locals.BUILD)
     .option('c, clone', locals.CLONE)
     .option('v, dev', locals.SERVER)
@@ -91,12 +90,9 @@ checkUpdate().then(async () => {
     .option('q, qr', locals.QR)
     .option('-v, --version', locals.SHOW_VERSION)
     // 注册命令的回调
-    .action((cmd, env) => {
-      if (env) {
-        log.error(`\`wt ${cmd} ${env}\` ${locals.NO_COMMAND}`);
-      }
-      else {
-        log.error('`wt ' + cmd + '` ' + locals.NO_COMMAND);
+    .action((cmd) => {
+      if (cmd) {
+        log.error(`\`wt ${cmd}\` ${locals.NO_COMMAND}`);
       }
     });
 

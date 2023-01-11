@@ -1,7 +1,7 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-10 15:25:07
- * @LastEditTime: 2023-01-10 16:16:58
+ * @LastEditTime: 2023-01-11 09:47:48
  * @LastEditors: xkloveme
  * @Description: 天气命令
  * @FilePath: /watone-cli/packages/cli/src/commander/scaffold/weather.js
@@ -11,7 +11,7 @@ const utils = require('../../lib/utils')
 const log = require('../../lib/utils/log');
 const exec = require('mz/child_process').exec;
 
-module.exports = async function ({ cmd }) {
+module.exports = async function ({ address }) {
   // 检测当前网络环境
   let isNetWorkOk = await utils.isNetworkConnect();
   // 离线提示
@@ -20,7 +20,7 @@ module.exports = async function ({ cmd }) {
     log.error(locals.NETWORK_DISCONNECT_SUG);
     return;
   }
-  let url = cmd ? `curl wttr.in/${cmd}` : 'curl wttr.in'
+  let url = address ? `curl wttr.in/${address}` : 'curl wttr.in'
 
   switch (process.platform) {
     // Mac 使用
@@ -31,7 +31,7 @@ module.exports = async function ({ cmd }) {
       break;
     // Windows使用
     case "win32":
-      utils.openURL(`https://wttr.in/${cmd}`);
+      utils.openURL(`https://wttr.in/${address}`);
       break;
     // Linux等使用
     default:

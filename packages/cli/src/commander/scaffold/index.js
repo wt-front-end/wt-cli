@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-30 11:21:05
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-10 18:31:07
+ * @LastEditTime: 2023-01-11 09:47:29
  */
 'use strict';
 
@@ -32,11 +32,11 @@ module.exports = function (program) {
 
   // 天气
   program
-    .command('weather [cmd]')
+    .command('weather [address]')
     .description(locals.WEATHER_DESC)
     .alias('w')
-    .action((cmd) => weather({
-      cmd: cmd
+    .action((address) => weather({
+      address: address
     }));
   // 搜索
   program
