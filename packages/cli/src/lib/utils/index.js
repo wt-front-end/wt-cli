@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:51:58
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-11 20:13:46
+ * @LastEditTime: 2023-01-11 20:14:59
  */
 const dns = require('dns');
 const os = require('os');
@@ -47,20 +47,6 @@ exports.getHome = function () {
  * @return {string} 目录 url
  */
 exports.openURL = function (url) {
-  // 判断平台
-  // switch (process.platform) {
-  //   // Mac 使用open
-  //   case "darwin":
-  //     child_process.spawn('open', [url]);
-  //     break;
-  //   // Windows使用start
-  //   case "win32":
-  //     child_process.spawn('start', [url]);
-  //     break;
-  //   // Linux等使用xdg-open
-  //   default:
-  //     child_process.spawn('xdg-open', [url]);
-  // }
   open(url)
   console.log(chalk.green('链接已经打开,请在浏览器查看:') + '\n' + chalk.yellow(url))
 };
