@@ -3,13 +3,13 @@
  * @Author: superDragon
  * @Date: 2019-08-30 11:21:05
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-11 14:11:50
+ * @LastEditTime: 2023-01-11 14:52:56
  */
 'use strict';
 // init 安装脚手架命令
 // const init = require('./action');
 // build 快捷打包
-const buildServer = require('./build');
+const shortcutServer = require('./shortcut');
 // weather 天气
 const weatherServer = require('./weather');
 // 搜索
@@ -25,8 +25,28 @@ exports.build = function(program) {
     .command('build [cmd]')
     .description(locals.BUILD_DESC)
     .alias('b')
-    .action((cmd) => buildServer({
-      cmd: cmd
+    .action((cmd) => shortcutServer({
+      cmd: cmd || 'build'
+    }));
+}
+// 定义dev命令
+exports.dev = function(program) {
+  program
+    .command('dev [cmd]')
+    .description(locals.BUILD_DESC)
+    .alias('v')
+    .action((cmd) => shortcutServer({
+      cmd: cmd || 'dev'
+    }));
+}
+// 定义install命令
+exports.install = function(program) {
+  program
+    .command('install [cmd]')
+    .description(locals.BUILD_DESC)
+    .alias('i')
+    .action((cmd) => shortcutServer({
+      cmd: cmd || 'install'
     }));
 }
 // 定义weather命令
