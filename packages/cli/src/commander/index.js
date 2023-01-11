@@ -4,10 +4,9 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-11 16:17:03
+ * @LastEditTime: 2023-01-11 17:32:42
  */
 'use strict';
-
 const clear = require('clear');
 const chalk = require('chalk');
 const figlet = require('figlet');
@@ -16,7 +15,7 @@ const exec = require('child_process').exec;
 const execSync = require('child_process').execSync;
 const locals = require('../locals')();
 const log = require('../lib/utils/log');
-const { build, weather, serach, http , dev , install} = require('./scaffold');
+const { build, weather, serach, http, dev, install } = require('./scaffold');
 // 检查版本更新方法
 const checkUpdate = require('../lib/utils/checkUpdate');
 

@@ -1,7 +1,7 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-10 17:10:20
- * @LastEditTime: 2023-01-11 13:22:51
+ * @LastEditTime: 2023-01-11 17:51:36
  * @LastEditors: xkloveme
  * @Description: http静态服务
  * @FilePath: /watone-cli/packages/cli/src/commander/scaffold/http.js
@@ -51,6 +51,7 @@ li {
   user-select: none;
   font-weight: bolder;
   display:flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -60,6 +61,16 @@ li:hover{
 }
 li:active {
   transform: scale(0.97) rotateZ(1.03deg);
+}
+
+.text-desc{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 2px;
+}
+.file-size{
+  white-space: nowrap;
 }
 
 a {
@@ -149,10 +160,10 @@ a:hover {
         <ul>
             <% data.forEach(function(dir){ %>
               <a href="<%= dir.href %>"><li>
-              <div>
+              <div class="text-desc" title="<%=dir.content%>">
               <i class="<%=dir.className%>"></i>
               <%= dir.content %></div>
-              <div><%= dir.size %></div></li></a>
+              <div class="file-size"><%= dir.size %></div></li></a>
             <% }); %>
           </ul>
     </div>
@@ -183,7 +194,17 @@ class Server {
   }
   start () {
     let server = http.createServer(this.sendRequest.bind(this));
+    const onError = (e) => {
+      if (e.code === 'EADDRINUSE') {
+        console.log(`Port ${this.port} is in use, trying another one...`);
+        server.listen(++this.port);
+      } else {
+        console.log('其他错误：', e);
+      }
+    };
+    server.on('error', onError)
     server.listen(this.port, this.host, () => {
+      server.removeListener('error', onError);
       console.log('\n服务路径: ' + chalk.yellow(`${this.dir}\n`));
       console.group('服务链接:');
       console.log(chalk.green(`http://localhost:${this.port}`));
@@ -192,10 +213,12 @@ class Server {
       console.groupEnd();
       console.log('Hit CTRL-C to stop the server');
     })
+
   }
   async sendRequest (req, res) {
     try {
       let { pathname } = url.parse(req.url);
+      pathname = decodeURIComponent(pathname); // pathname有可能是中文，把base64解析成中文
       let currentPath = path.join(this.dir, pathname);
       let stats = await fs.stat(currentPath);
       if (stats.isDirectory()) {
@@ -207,6 +230,7 @@ class Server {
         let datas = dirs.map((dir, index) => {
           let isfile = statItem[index].isFile();
           let size = isfile ? formatFileSize(statItem[index].size) : '';
+          // let dirEncode = decodeURIComponent(dir);
           // let contentType = mime.getType(path.join(currentPath, dir));
           return {
             href: path.join(pathname, dir),
@@ -216,7 +240,7 @@ class Server {
           }
         })
         let str = ejs.render(this.template, { data: datas });
-        res.setHeader('Content-type', 'text/html; charset-utf8');
+        res.setHeader('Content-type', 'text/html;charset=utf-8');
         res.end(str);
       } else {
         this.responseData(req, res, currentPath);
