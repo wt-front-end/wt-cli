@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:49:22
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-11 13:39:06
+ * @LastEditTime: 2023-01-11 18:03:53
  */
 
 module.exports = {
@@ -32,6 +32,7 @@ module.exports = {
   HELP:'帮助信息',
   WEATHER:'天气服务',
   WEATHER_DESC:'默认获取当前地区的天气数据',
+  DEV_DESC:'项目运行快捷命令',
   BUILD_DESC:'打包快捷命令',
   TIME:'时间转换',
   QR:'内容生成二维码',

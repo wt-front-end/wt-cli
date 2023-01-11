@@ -2,7 +2,7 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-11 09:20:47
- * @LastEditTime: 2023-01-11 14:27:29
+ * @LastEditTime: 2023-01-11 18:06:42
  * @LastEditors: xkloveme
  * @Description: http静态服务
  * @FilePath: /watone-cli/bin/h-cli.js
@@ -27,7 +27,7 @@ program
   .action((path, options) => {
     let server = new httpServer({
       port: options.port,
-      open: options.port,
+      open: options.open,
       dir: path || options.dir,
     })
     server.start();

@@ -2,7 +2,7 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-11 09:21:17
- * @LastEditTime: 2023-01-11 14:51:20
+ * @LastEditTime: 2023-01-11 18:03:55
  * @LastEditors: xkloveme
  * @Description: 本地服务启动
  * @FilePath: /watone-cli/bin/v-cli.js
@@ -14,7 +14,7 @@ const locals = require('../packages/cli/src/locals/index')();
 
 program
   .command('dev [cmd]')
-  .description(locals.BUILD_DESC)
+  .description(locals.DEV_DESC)
   .alias('v')
   .action((cmd) => shortcutServer({
     cmd: cmd || 'dev'

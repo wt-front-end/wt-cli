@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-30 11:21:05
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-11 14:52:56
+ * @LastEditTime: 2023-01-11 18:06:32
  */
 'use strict';
 // init 安装脚手架命令
@@ -33,7 +33,7 @@ exports.build = function(program) {
 exports.dev = function(program) {
   program
     .command('dev [cmd]')
-    .description(locals.BUILD_DESC)
+    .description(locals.DEV_DESC)
     .alias('v')
     .action((cmd) => shortcutServer({
       cmd: cmd || 'dev'
@@ -88,7 +88,7 @@ exports.http = function(program) {
     .action((path, options) => {
         let server = new httpServer({
           port: options.port,
-          open: options.port,
+          open: options.open,
           dir: path || options.dir,
         })
         server.start();

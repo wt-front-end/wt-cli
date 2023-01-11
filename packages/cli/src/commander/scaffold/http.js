@@ -1,7 +1,7 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-10 17:10:20
- * @LastEditTime: 2023-01-11 17:51:36
+ * @LastEditTime: 2023-01-11 18:08:46
  * @LastEditors: xkloveme
  * @Description: http静态服务
  * @FilePath: /watone-cli/packages/cli/src/commander/scaffold/http.js
@@ -186,10 +186,11 @@ function formatFileSize (size) {
   return size.toFixed(2) + ' ' + units[i];
 }
 class Server {
-  constructor({ port, host, dir }) {
+  constructor({ port, host, dir , open}) {
     this.port = port || baseConfig.port;
     this.host = host || baseConfig.host;
     this.dir = dir || baseConfig.dir;
+    this.open = open;
     this.template = template;
   }
   start () {
@@ -205,6 +206,7 @@ class Server {
     server.on('error', onError)
     server.listen(this.port, this.host, () => {
       server.removeListener('error', onError);
+      this.open && utils.openURL(`http://${myIP}:${this.port}`)
       console.log('\n服务路径: ' + chalk.yellow(`${this.dir}\n`));
       console.group('服务链接:');
       console.log(chalk.green(`http://localhost:${this.port}`));

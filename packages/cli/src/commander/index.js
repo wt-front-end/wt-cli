@@ -4,7 +4,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-11 17:32:42
+ * @LastEditTime: 2023-01-11 18:02:21
  */
 'use strict';
 const clear = require('clear');
@@ -29,7 +29,7 @@ let tableVersion = [
   { name: "pnpm", version: execSync('pnpm -v', { encoding: 'utf8' }).replace(/\n/g, "") }
 ]
 let tableInfo = [
-  { [locals.DOC]: "说明文档", [locals.LINK]: "" },
+  { [locals.DOC]: "说明文档", [locals.LINK]: "https://wt-front-end.github.io/wt-docs/wt-cli/" },
   { [locals.DOC]: "前端文档", [locals.LINK]: "https://wt-front-end.github.io/wt-docs/" },
   { [locals.DOC]: "WT-UI-ANTD组件库", [locals.LINK]: "https://wt-front-end.github.io/wt-ui-antd/" },
   { [locals.DOC]: "表格转化工具", [locals.LINK]: "https://www.jixiaokang.com/black-tool/" },
@@ -68,7 +68,7 @@ checkUpdate().then(async () => {
     log.info('获取版本信息  $ wt -v');
     log.info('搜索内容  $ wt s 杭州到北京多远');
     log.info('当前天气  $ wt w');
-    log.info('启动http服务  $ wt h');
+    log.info('启动http服务  $ wt h 或者 $ h');
   });
 
   // 定义命令
