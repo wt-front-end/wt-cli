@@ -8,7 +8,7 @@
 /**
  * @file 通过 Schema 生成可以让用户输入的 Question Form
  */
-const exec = require('child_process').exec;
+const exec = require('mz/child_process').exec;
 const fs = require('fs-extra');
 const os = require('os');
 const inquirer = require('inquirer');
