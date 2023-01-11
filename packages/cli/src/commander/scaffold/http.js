@@ -1,10 +1,10 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-10 17:10:20
- * @LastEditTime: 2023-01-11 18:08:46
+ * @LastEditTime: 2023-01-11 20:16:33
  * @LastEditors: xkloveme
  * @Description: http静态服务
- * @FilePath: /watone-cli/packages/cli/src/commander/scaffold/http.js
+ * @FilePath: \wt-cli\packages\cli\src\commander\scaffold\http.js
  * @Copyright © xkloveme
  */
 const http = require('http');
@@ -173,6 +173,7 @@ let myIP = utils.getIPAdress()
 const baseConfig = {
   port: 5282,
   host: '0.0.0.0',
+  open: true,
   dir: process.cwd()
 }
 // 转化文件大小,单位：byte
@@ -190,7 +191,7 @@ class Server {
     this.port = port || baseConfig.port;
     this.host = host || baseConfig.host;
     this.dir = dir || baseConfig.dir;
-    this.open = open;
+    this.open = open || baseConfig.open;
     this.template = template;
   }
   start () {
