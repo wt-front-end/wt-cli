@@ -3,12 +3,12 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:49:22
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-11 18:03:53
+ * @LastEditTime: 2023-01-11 22:15:03
  */
 
 module.exports = {
   LANG: 'zh_CN',
-  WELECOME: `欢迎使用WT`,
+  WELECOME: `欢迎使用WATONE CLI`,
   SHOW_VERSION: '版本信息',
   DOC_LINK: '文档链接',
   DOC:'文档',
@@ -40,8 +40,8 @@ module.exports = {
   INIT_DESC: '初始化一个项目',
   SKIN_DESC: 'H5 APP 换皮',
   INIT_OPTION_FORCE: '初始化一个项目(强制覆盖)',
-  GREETING_GUIDE: '开始新建一个 ht 模版项目',
-  NETWORK_DISCONNECT: '创建工程需要下载云端模版',
+  GREETING_GUIDE: '开始新建一个模版项目',
+  NETWORK_DISCONNECT: '您已断网！所需服务需要连接到互联网',
   NETWORK_DISCONNECT_SUG: '请确认您的设备处于网络可访问的环境中',
   LOADING_FROM_CLOUD: '正在拉取云端数据，请稍候',
   INPUT_INVALID: '输入不符合规范',
@@ -57,5 +57,5 @@ module.exports = {
   RENDER_TEMPLATE_ERROR: '模板渲染出错',
   INIT_SUCCESS: '项目已创建成功',
   INIT_NEXT_GUIDE: '您可以操作如下命令快速开始开发工程',
-  UPDATE_TIPS: 'WT CLI 有新的版本更新，您可以通过 `npm update -g ht-cli` 命令更新版本!',
+  UPDATE_TIPS: 'WATONE CLI 有新的版本更新，您可以通过 `npm update -g @watone/wt-cli` 命令更新版本!',
 };

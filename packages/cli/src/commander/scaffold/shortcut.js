@@ -1,15 +1,16 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-10 17:10:20
- * @LastEditTime: 2023-01-11 14:48:49
+ * @LastEditTime: 2023-01-11 22:08:21
  * @LastEditors: xkloveme
  * @Description: 快捷指令
- * @FilePath: /watone-cli/packages/cli/src/commander/scaffold/shortcut.js
+ * @FilePath: \wt-cli\packages\cli\src\commander\scaffold\shortcut.js
  * @Copyright © xkloveme
  */
 const execSync = require('mz/child_process').execSync;
 const utils = require('../../lib/utils');
 module.exports = async function ({ cmd }) {
+  console.log(utils.cmdExists('pnpm'),88)
   let command;
   try {
     if (utils.cmdExists('pnpm')) {
@@ -17,7 +18,7 @@ module.exports = async function ({ cmd }) {
     } else if (utils.cmdExists('yarn')) {
       command = `yarn ${cmd}`;
     } else if (utils.cmdExists('npm')) {
-      command = `npm run ${cmd}`;
+      command = `npm ${cmd}`;
     } else {
       throw new Error("pnpm, yarn, npm 命令其中之一都没有被发现.")
     }

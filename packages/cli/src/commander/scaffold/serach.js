@@ -1,10 +1,10 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-10 16:19:09
- * @LastEditTime: 2023-01-10 16:50:49
+ * @LastEditTime: 2023-01-11 22:01:19
  * @LastEditors: xkloveme
  * @Description: bing 搜索
- * @FilePath: /watone-cli/packages/cli/src/commander/scaffold/serach.js
+ * @FilePath: \wt-cli\packages\cli\src\commander\scaffold\serach.js
  * @Copyright © xkloveme
  */
 
@@ -28,6 +28,9 @@ module.exports = async function ({ q, type }) {
       break;
     case "google":
       utils.openURL(`https://www.google.com/search?q=${q}`);
+      break;
+    case "github":
+      utils.openURL(`https://github.com/search?q=${q}`);
       break;
     default:
       utils.openURL(`https://cn.bing.com/search?q=${q}`);
