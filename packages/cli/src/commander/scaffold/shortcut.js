@@ -1,7 +1,7 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-10 17:10:20
- * @LastEditTime: 2023-01-11 22:08:21
+ * @LastEditTime: 2023-01-11 22:17:45
  * @LastEditors: xkloveme
  * @Description: 快捷指令
  * @FilePath: \wt-cli\packages\cli\src\commander\scaffold\shortcut.js
@@ -10,7 +10,6 @@
 const execSync = require('mz/child_process').execSync;
 const utils = require('../../lib/utils');
 module.exports = async function ({ cmd }) {
-  console.log(utils.cmdExists('pnpm'),88)
   let command;
   try {
     if (utils.cmdExists('pnpm')) {
