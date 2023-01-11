@@ -7,7 +7,7 @@
  * @FilePath: /watone-cli/packages/cli/src/commander/scaffold/shortcut.js
  * @Copyright © xkloveme
  */
-const execSync = require('mz/child_process').execSync;
+const execSync = require('child_process').execSync;
 const utils = require('../../lib/utils');
 module.exports = async function ({ cmd }) {
   let command;

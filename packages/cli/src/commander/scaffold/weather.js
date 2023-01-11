@@ -9,7 +9,7 @@
  */
 const utils = require('../../lib/utils')
 const log = require('../../lib/utils/log');
-const exec = require('mz/child_process').exec;
+const exec = require('child_process').exec;
 
 module.exports = async function ({ address }) {
   // 检测当前网络环境

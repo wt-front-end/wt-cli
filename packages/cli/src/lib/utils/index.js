@@ -11,7 +11,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
 const interfaces = require('os').networkInterfaces();
-const child_process = require('mz/child_process');
+const child_process = require('child_process');
 /**
  * 检测当前网络环境
  *

@@ -4,7 +4,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-11 15:21:15
+ * @LastEditTime: 2023-01-11 16:17:03
  */
 'use strict';
 
@@ -12,8 +12,8 @@ const clear = require('clear');
 const chalk = require('chalk');
 const figlet = require('figlet');
 const program = require('commander');
-const exec = require('mz/child_process').exec;
-const execSync = require('mz/child_process').execSync;
+const exec = require('child_process').exec;
+const execSync = require('child_process').execSync;
 const locals = require('../locals')();
 const log = require('../lib/utils/log');
 const { build, weather, serach, http , dev , install} = require('./scaffold');
