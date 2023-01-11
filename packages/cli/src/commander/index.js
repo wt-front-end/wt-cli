@@ -1,9 +1,10 @@
+#!/usr/bin/env node
 /*
  * @describe: 命令配置
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-11 14:56:42
+ * @LastEditTime: 2023-01-11 15:21:15
  */
 'use strict';
 
