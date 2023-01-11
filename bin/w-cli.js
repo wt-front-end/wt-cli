@@ -2,10 +2,10 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-11 09:20:47
- * @LastEditTime: 2023-01-11 18:06:42
+ * @LastEditTime: 2023-01-11 19:16:06
  * @LastEditors: xkloveme
  * @Description: http静态服务
- * @FilePath: /watone-cli/bin/h-cli.js
+ * @FilePath: \ht-cli\bin\h-cli.js
  * @Copyright © xkloveme
  */
 

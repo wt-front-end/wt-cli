@@ -22,7 +22,7 @@ const locals = require('../../locals')();
 const getHome = require('./index').getHome;
 
 const TIME_RANGE = 24 * 60 * 60 * 1000;
-const NPM_REGISTRY = 'https://registry.npmmirror.com/@watone/wt-cli';
+const NPM_REGISTRY = 'https://registry.npmmirror.com/@watone/ht-cli';
 
 
 async function requestPackageInfo () {

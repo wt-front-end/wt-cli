@@ -3,8 +3,8 @@
   "version": "1.0.6",
   "description": "watone tools",
   "bin": {
-    "wt": "bin/wt-cli.js",
-    "h": "bin/h-cli.js",
+    "ht": "bin/ht-cli.js",
+    "w": "bin/w-cli.js",
     "v": "bin/v-cli.js",
     "i": "bin/i-cli.js",
     "b": "bin/b-cli.js"

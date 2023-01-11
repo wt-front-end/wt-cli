@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-30 11:21:05
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-11 18:06:32
+ * @LastEditTime: 2023-01-11 19:28:28
  */
 'use strict';
 // init 安装脚手架命令
@@ -54,7 +54,7 @@ exports.weather = function(program) {
   program
     .command('weather [address]')
     .description(locals.WEATHER_DESC)
-    .alias('w')
+    .alias('a')
     .action((address) => weatherServer({
       address: address
     }));
@@ -76,12 +76,12 @@ exports.serach = function(program) {
     }));
 }
 
-// 定义http命令
+// 定义www命令
 exports.http = function(program) {
   program
-    .command('http [path]')
+    .command('www [path]')
     .description(locals.HTTP_DESC)
-    .alias('h')
+    .alias('w')
     .option('-p, --port [port]', locals.HTTP_PORT)
     .option('-o, --open [open]', locals.HTTP_OPEN)
     .option('-d, --dir [dir]', locals.HTTP_URL)

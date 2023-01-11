@@ -1,10 +1,10 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-10 15:25:07
- * @LastEditTime: 2023-01-11 18:24:47
+ * @LastEditTime: 2023-01-11 19:23:36
  * @LastEditors: xkloveme
  * @Description: 天气命令
- * @FilePath: /watone-cli/packages/cli/src/commander/scaffold/weather.js
+ * @FilePath: \wt-cli\packages\cli\src\commander\scaffold\tianqi.js
  * @Copyright © xkloveme
  */
 const utils = require('../../lib/utils')

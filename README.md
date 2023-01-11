@@ -1,4 +1,4 @@
-# wt-cli
+# ht-cli
 
 ## 说明
 
@@ -16,56 +16,56 @@ pnpm install @watone/wt-cli --global
 
 ## 命令
 
-### wt -v 获取版本号
+### ht -v 获取版本号
 
 ``` bash
 # 版本号
-wt -v
+ht -v
 # OR
-wt --version
+ht --version
 ```
 
-### wt -h 查看帮助
+### ht -h 查看帮助
 
 ``` bash
 # 查看帮助
-wt -h
+ht -h
 # OR
-wt --help
+ht --help
 ```
 
 
 
-### wt b 打包资源
+### ht b 打包资源
 
 ``` bash
 # 打包资源
-wt b
+ht b
 # OR
-wt build
+ht build
 
 使用方法：
-      wt b [npm的打包命令]
+      ht b [npm的打包命令]
 ```
-### wt v 启动项目
+### ht v 启动项目
 ``` bash
 # 打包资源
-wt v
+ht v
 # OR
-wt dev
+ht dev
 使用方法：
-      wt b [npm的启动命令]
+      ht b [npm的启动命令]
 ```
 
-### wt s 关键字搜索
+### ht s 关键字搜索
 
 ``` bash
 # 搜索问题,并在浏览器打开
-wt s
+ht s
 # OR
-wt serach
+ht serach
 使用方法：
-      wt s [搜索的关键字]
+      ht s [搜索的关键字]
 
 可选参数
      -b, --baidu   使用百度搜索
@@ -74,34 +74,34 @@ wt serach
      -t, --github  使用github搜索
 ```
 
-### wt ip 获取本机ip
+### ht ip 获取本机ip
 
 ``` bash
-wt i
+ht i
 # OR
-wt ip
+ht ip
 使用方法：
-      wt ip
+      ht ip
 ```
 
-### wt o 打开url
+### ht o 打开url
 ``` bash
 # 会使用默认浏览器打开url
-wt o
+ht o
 # OR
-wt open
+ht open
 使用方法：
-      wt o [url链接]
+      ht o [url链接]
 ```
      
-### wt s 启动服务
+### ht s 启动服务
 ``` bash
 # 会在当前目录启动一个http服务,并在浏览器打开
-wt h
+ht h
 # OR
-wt http
+ht http
 使用方法：
-      wt h
+      ht h
 可选参数
      -p, --port   指定端口,默认5282
      -o, --open   是否打开浏览器,默认不打开
@@ -109,22 +109,22 @@ wt http
 ```
 
 
-### wt t 翻译服务
+### ht t 翻译服务
 ``` bash
 # 会在当前目录启动一个http服务,并在浏览器打开
-wt t
+ht t
 # OR
-wt translation
+ht translation
 使用方法：
-      wt t [需要翻译的单词或关键词]
+      ht t [需要翻译的单词或关键词]
 ```
 
-### wt c 克隆项目
+### ht c 克隆项目
 ``` bash
 # 当没有参数时会需要选择项目,后面有参数时效果和 git clone 一样
-wt c
+ht c
 # OR
-wt clone
+ht clone
 使用方法：
-      wt c [克隆项目地址]
+      ht c [克隆项目地址]
 ```
