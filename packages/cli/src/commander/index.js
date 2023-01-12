@@ -4,7 +4,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 11:05:43
+ * @LastEditTime: 2023-01-12 12:45:55
  */
 'use strict';
 const clear = require('clear');
@@ -29,7 +29,7 @@ let tableVersion = [
   { name: "pnpm", version: execSync('pnpm -v', { encoding: 'utf8' }).replace(/\n/g, "") }
 ]
 let tableInfo = [
-  { [locals.DOC]: "说明文档", [locals.LINK]: "https://wt-front-end.github.io/wt-docs/wt-cli/" },
+  { [locals.DOC]: "说明文档", [locals.LINK]: "https://wt-front-end.github.io/wt-docs/wt-cli.html" },
   { [locals.DOC]: "前端文档", [locals.LINK]: "https://wt-front-end.github.io/wt-docs/" },
   { [locals.DOC]: "WT-UI-ANTD组件库", [locals.LINK]: "https://wt-front-end.github.io/wt-ui-antd/" },
   { [locals.DOC]: "表格转化工具", [locals.LINK]: "https://www.jixiaokang.com/black-tool/" },
@@ -69,6 +69,7 @@ checkUpdate().then(async () => {
     log.info('搜索内容  $ watone s 杭州到北京多远');
     log.info('当前天气  $ watone a');
     log.info('启动http服务  $ watone w 或者 $ w');
+    log.info('生成二维码  $ watone qrcode 我的二维码 或者 $ watone q 我的二维码');
   });
 
   // 定义命令
@@ -86,7 +87,7 @@ checkUpdate().then(async () => {
     .option('h, http', locals.HTTP)
     .option('w, weather', locals.WEATHER)
     .option('t, time', locals.TIME)
-    .option('q, qr', locals.QR)
+    .option('q, qr', locals.QRCODE_DESC)
     .option('-v, --version', locals.SHOW_VERSION)
     // 注册命令的回调
     .action((cmd) => {
