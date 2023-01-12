@@ -4,7 +4,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 12:58:42
+ * @LastEditTime: 2023-01-12 13:08:25
  */
 'use strict';
 const clear = require('clear');
@@ -15,6 +15,7 @@ const exec = require('mz/child_process').exec;
 const execSync = require('mz/child_process').execSync;
 const locals = require('../locals')();
 const log = require('../lib/utils/log');
+const utils = require('../lib/utils');
 const { build, weather, serach, http, dev, install, qrcode, translation, ip, open } = require('./scaffold');
 // 检查版本更新方法
 const checkUpdate = require('../lib/utils/checkUpdate');
@@ -25,9 +26,9 @@ let tableVersion = [
   { name: "node", version: execSync('node -v', { encoding: 'utf8' }).replace(/\n/g, "") },
   { name: "npm", version: execSync('npm -v', { encoding: 'utf8' }).replace(/\n/g, "") },
 ]
-utils.cmdExists('git') || tableVersion.push({ name: "git", version: execSync('git --version', { encoding: 'utf8' }).replace(/\n/g, "") })
-utils.cmdExists('yarn') || tableVersion.push({ name: "yarn", version: execSync('yarn -v', { encoding: 'utf8' }).replace(/\n/g, "") })
-utils.cmdExists('pnpm') || tableVersion.push({ name: "pnpm", version: execSync('pnpm -v', { encoding: 'utf8' }).replace(/\n/g, "") })
+utils.cmdExists('git') && tableVersion.push({ name: "git", version: execSync('git --version', { encoding: 'utf8' }).replace(/\n/g, "") })
+utils.cmdExists('yarn') && tableVersion.push({ name: "yarn", version: execSync('yarn -v', { encoding: 'utf8' }).replace(/\n/g, "") })
+utils.cmdExists('pnpm') && tableVersion.push({ name: "pnpm", version: execSync('pnpm -v', { encoding: 'utf8' }).replace(/\n/g, "") })
 let tableInfo = [
   { [locals.DOC]: "说明文档", [locals.LINK]: "https://wt-front-end.github.io/wt-docs/wt-cli.html" },
   { [locals.DOC]: "前端文档", [locals.LINK]: "https://wt-front-end.github.io/wt-docs/" },

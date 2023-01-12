@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:51:58
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 10:06:07
+ * @LastEditTime: 2023-01-12 13:07:58
  */
 const dns = require('dns');
 const os = require('os');
@@ -13,6 +13,7 @@ const chalk = require('chalk');
 const interfaces = require('os').networkInterfaces();
 const qrcode = require('qrcode-terminal');
 const open = require('open');
+const child_process = require('mz/child_process');
 /**
  * 检测当前网络环境
  *
@@ -76,7 +77,7 @@ exports.getIPAdress = function (url) {
 
 exports.cmdExists = function (cmd) {
   try {
-    child_process.execSync(`where ${cmd} > nul 2> nul`)
+    child_process.execSync(`which ${cmd}`)
     return true
   }
   catch {
