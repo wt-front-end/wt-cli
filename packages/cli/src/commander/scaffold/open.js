@@ -1,13 +1,13 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-10 16:19:09
- * @LastEditTime: 2023-01-12 11:09:31
+ * @LastEditTime: 2023-01-12 14:50:53
  * @LastEditors: xkloveme
  * @Description: open link
  * @FilePath: /watone-cli/packages/cli/src/commander/scaffold/open.js
  * @Copyright © xkloveme
  */
-
+const log = require('../../lib/utils/log');
 const utils = require('../../lib/utils');
 module.exports = async function ({ url }) {
   if (url) {
