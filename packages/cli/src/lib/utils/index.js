@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:51:58
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 13:44:09
+ * @LastEditTime: 2023-01-12 14:55:57
  */
 const dns = require('dns');
 const os = require('os');
@@ -97,6 +97,6 @@ exports.cmdExists = function (cmd) {
 exports.generateQrcode = function (keyword) {
   qrcode.generate(keyword, {small: true}, function (qrcode) {
     console.log(chalk.blue('二维码已生成:'));
-    console.log(chalk.yellow.bgRed(qrcode));
+    console.log(qrcode);
 });
 }
