@@ -36,6 +36,7 @@ module.exports = {
   BUILD_DESC:'打包快捷命令',
   TIME:'时间转换',
   QRCODE_DESC:'内容生成二维码',
+  TRANSLATION_DESC:'输入内容进行翻译',
   NO_COMMAND: '命令不存在',
   INIT_DESC: '初始化一个项目',
   SKIN_DESC: 'H5 APP 换皮',

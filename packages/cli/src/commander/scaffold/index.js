@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-30 11:21:05
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 10:19:35
+ * @LastEditTime: 2023-01-12 10:27:31
  */
 'use strict';
 // 提示文件
@@ -20,6 +20,8 @@ const serachServer = require('./serach');
 const httpServer = require('./http');
 // qrcode
 const qrcodeServer = require('./qrcode');
+// translation
+const translationServer = require('./translation');
 
 // 定义build命令
 exports.build = function(program) {
@@ -103,6 +105,16 @@ exports.qrcode = function(program) {
     .description(locals.QRCODE_DESC)
     .alias('q')
     .action((keyword) => qrcodeServer({
+      keyword,
+    }));
+}
+// 定义translation命令
+exports.translation = function(program) {
+  program
+    .command('translation [keyword]')
+    .description(locals.TRANSLATION_DESC)
+    .alias('t')
+    .action((keyword) => translationServer({
       keyword,
     }));
 }
