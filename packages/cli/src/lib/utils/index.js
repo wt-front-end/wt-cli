@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:51:58
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 13:07:58
+ * @LastEditTime: 2023-01-12 13:22:01
  */
 const dns = require('dns');
 const os = require('os');
@@ -77,10 +77,13 @@ exports.getIPAdress = function (url) {
 
 exports.cmdExists = function (cmd) {
   try {
-    child_process.execSync(`which ${cmd}`)
+    if (os.platform() === 'win32') {
+        child_process.execSync(`where ${cmd} > nul 2> nul`)
+    } else {
+        child_process.execSync(`which ${cmd}`)
+    }
     return true
-  }
-  catch {
+  } catch {
     return false
   }
 }
