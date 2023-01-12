@@ -1,7 +1,7 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-10 15:25:07
- * @LastEditTime: 2023-01-12 09:26:05
+ * @LastEditTime: 2023-01-12 10:48:27
  * @LastEditors: xkloveme
  * @Description: 天气命令
  * @FilePath: /watone-cli/packages/cli/src/commander/scaffold/weather.js
@@ -10,7 +10,7 @@
 const utils = require('../../lib/utils')
 const log = require('../../lib/utils/log');
 const exec = require('mz/child_process').exec;
-
+const locals = require('../../locals')();
 module.exports = async function ({ address }) {
   // 检测当前网络环境
   let isNetWorkOk = await utils.isNetworkConnect();

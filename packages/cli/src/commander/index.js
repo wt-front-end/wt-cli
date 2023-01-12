@@ -4,7 +4,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 10:28:35
+ * @LastEditTime: 2023-01-12 11:05:43
  */
 'use strict';
 const clear = require('clear');
@@ -15,7 +15,7 @@ const exec = require('mz/child_process').exec;
 const execSync = require('mz/child_process').execSync;
 const locals = require('../locals')();
 const log = require('../lib/utils/log');
-const { build, weather, serach, http, dev, install, qrcode,translation } = require('./scaffold');
+const { build, weather, serach, http, dev, install, qrcode, translation, ip, open } = require('./scaffold');
 // 检查版本更新方法
 const checkUpdate = require('../lib/utils/checkUpdate');
 
@@ -103,7 +103,10 @@ checkUpdate().then(async () => {
   dev(program);
   install(program);
   qrcode(program);
-  translation(program)
+  translation(program);
+  ip(program);
+  open(program);
+
 
   program.parse(process.argv);
 });

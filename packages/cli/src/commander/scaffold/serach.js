@@ -1,14 +1,15 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-10 16:19:09
- * @LastEditTime: 2023-01-11 22:01:19
+ * @LastEditTime: 2023-01-12 10:48:32
  * @LastEditors: xkloveme
  * @Description: bing 搜索
- * @FilePath: \wt-cli\packages\cli\src\commander\scaffold\serach.js
+ * @FilePath: /watone-cli/packages/cli/src/commander/scaffold/serach.js
  * @Copyright © xkloveme
  */
 
 const utils = require('../../lib/utils');
+const locals = require('../../locals')();
 module.exports = async function ({ q, type }) {
   // 检测当前网络环境
   let isNetWorkOk = await utils.isNetworkConnect();

@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:49:22
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 09:30:29
+ * @LastEditTime: 2023-01-12 11:03:57
  */
 
 module.exports = {
@@ -37,6 +37,8 @@ module.exports = {
   TIME:'时间转换',
   QRCODE_DESC:'内容生成二维码',
   TRANSLATION_DESC:'输入内容进行翻译',
+  IP_DESC:'获取本机IP',
+  OPEN_DESC:'浏览器打开URL链接',
   NO_COMMAND: '命令不存在',
   INIT_DESC: '初始化一个项目',
   SKIN_DESC: 'H5 APP 换皮',

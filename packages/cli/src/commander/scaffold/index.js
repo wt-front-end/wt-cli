@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-30 11:21:05
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 10:27:31
+ * @LastEditTime: 2023-01-12 11:06:40
  */
 'use strict';
 // 提示文件
@@ -22,7 +22,10 @@ const httpServer = require('./http');
 const qrcodeServer = require('./qrcode');
 // translation
 const translationServer = require('./translation');
-
+// ip
+const ipServer = require('./ip');
+// open
+const openServer = require('./open');
 // 定义build命令
 exports.build = function(program) {
   program
@@ -101,11 +104,11 @@ exports.http = function(program) {
 // 定义qrcode命令
 exports.qrcode = function(program) {
   program
-    .command('qrcode [keyword]')
+    .command('qrcode [content]')
     .description(locals.QRCODE_DESC)
     .alias('q')
-    .action((keyword) => qrcodeServer({
-      keyword,
+    .action((content) => qrcodeServer({
+      content,
     }));
 }
 // 定义translation命令
@@ -116,5 +119,22 @@ exports.translation = function(program) {
     .alias('t')
     .action((keyword) => translationServer({
       keyword,
+    }));
+}
+// 定义ip命令
+exports.ip = function(program) {
+  program
+    .command('ip')
+    .description(locals.IP_DESC)
+    .action(() => ipServer());
+}
+// 定义open命令
+exports.open = function(program) {
+  program
+    .command('open [url]')
+    .alias('o')
+    .description(locals.OPEN_DESC)
+    .action((url) => openServer({
+      url,
     }));
 }

@@ -93,7 +93,6 @@ watone open
 使用方法：
       watone o [url链接]
 ```
-     
 ### watone http 启动服务
 ``` bash
 # 会在当前目录启动一个http服务,并在浏览器打开
@@ -106,7 +105,7 @@ watone http
       watone h
 可选参数
      -p, --port   指定端口,默认5282
-     -o, --open   是否打开浏览器,默认不打开
+     -o, --open   是否打开浏览器,默认打开
      -u, --url    启动目录,默认当前目录
 ```
 
