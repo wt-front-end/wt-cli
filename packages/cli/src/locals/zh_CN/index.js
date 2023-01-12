@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:49:22
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 11:29:46
+ * @LastEditTime: 2023-01-12 13:34:23
  */
 
 module.exports = {
@@ -30,6 +30,7 @@ module.exports = {
   HTTP_OPEN: '是否打开浏览器',
   HTTP_URL: '启动目录',
   HELP: '帮助信息',
+  HELP_DESC: '推荐使用node 16.16.0, pnpm >= 7.11.0',
   WEATHER: '天气服务',
   WEATHER_DESC: '默认获取当前地区的天气数据',
   DEV_DESC: '项目运行快捷命令',

@@ -4,7 +4,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 13:08:25
+ * @LastEditTime: 2023-01-12 13:35:05
  */
 'use strict';
 const clear = require('clear');
@@ -23,12 +23,12 @@ const checkUpdate = require('../lib/utils/checkUpdate');
 let version = process.env.VERSION;
 let tableVersion = [
   { name: "watone", version: version },
-  { name: "node", version: execSync('node -v', { encoding: 'utf8' }).replace(/\n/g, "") },
-  { name: "npm", version: execSync('npm -v', { encoding: 'utf8' }).replace(/\n/g, "") },
+  { name: "node", version: execSync('node -v', { encoding: 'utf8' }).replace(/[\r\n]/g, "") },
+  { name: "npm", version: execSync('npm -v', { encoding: 'utf8' }).replace(/[\r\n]/g, "") },
 ]
-utils.cmdExists('git') && tableVersion.push({ name: "git", version: execSync('git --version', { encoding: 'utf8' }).replace(/\n/g, "") })
-utils.cmdExists('yarn') && tableVersion.push({ name: "yarn", version: execSync('yarn -v', { encoding: 'utf8' }).replace(/\n/g, "") })
-utils.cmdExists('pnpm') && tableVersion.push({ name: "pnpm", version: execSync('pnpm -v', { encoding: 'utf8' }).replace(/\n/g, "") })
+utils.cmdExists('git') && tableVersion.push({ name: "git", version: execSync('git --version', { encoding: 'utf8' }).replace(/[\r\n]/g, "") })
+utils.cmdExists('yarn') && tableVersion.push({ name: "yarn", version: execSync('yarn -v', { encoding: 'utf8' }).replace(/[\r\n]/g, "") })
+utils.cmdExists('pnpm') && tableVersion.push({ name: "pnpm", version: execSync('pnpm -v', { encoding: 'utf8' }).replace(/[\r\n]/g, "") })
 let tableInfo = [
   { [locals.DOC]: "说明文档", [locals.LINK]: "https://wt-front-end.github.io/wt-docs/wt-cli.html" },
   { [locals.DOC]: "前端文档", [locals.LINK]: "https://wt-front-end.github.io/wt-docs/" },
@@ -57,6 +57,7 @@ checkUpdate().then(async () => {
       clear();
       console.log(logo);
       log.info('wt version: ', version);
+      console.log(chalk.blue(locals.HELP_DESC));
       console.group(locals.SHOW_VERSION);
       console.table(tableVersion);
       console.groupEnd();
