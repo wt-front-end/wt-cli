@@ -1,10 +1,10 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-10 17:10:20
- * @LastEditTime: 2023-01-11 20:16:33
+ * @LastEditTime: 2023-01-12 10:15:40
  * @LastEditors: xkloveme
  * @Description: http静态服务
- * @FilePath: \wt-cli\packages\cli\src\commander\scaffold\http.js
+ * @FilePath: /watone-cli/packages/cli/src/commander/scaffold/http.js
  * @Copyright © xkloveme
  */
 const http = require('http');
@@ -31,7 +31,7 @@ h1{
   text-align: center;
 }
 ul {
-  width:60%;
+  width:80%;
   list-style: none;
   padding: 0;
   margin: 0 auto;
@@ -209,6 +209,7 @@ class Server {
       server.removeListener('error', onError);
       this.open && utils.openURL(`http://${myIP}:${this.port}`)
       console.log('\n服务路径: ' + chalk.yellow(`${this.dir}\n`));
+      utils.generateQrcode(`http://${myIP}:${this.port}`)
       console.group('服务链接:');
       console.log(chalk.green(`http://localhost:${this.port}`));
       console.log(chalk.green(`http://127.0.0.1:${this.port}`));

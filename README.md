@@ -94,12 +94,14 @@ watone open
       watone o [url链接]
 ```
      
-### watone s 启动服务
+### watone http 启动服务
 ``` bash
-# 会在当前目录启动一个watonetp服务,并在浏览器打开
+# 会在当前目录启动一个http服务,并在浏览器打开
+http
+# OR
 watone h
 # OR
-watone watonetp
+watone http
 使用方法：
       watone h
 可选参数

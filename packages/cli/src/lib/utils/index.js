@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:51:58
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-11 20:14:59
+ * @LastEditTime: 2023-01-12 10:06:07
  */
 const dns = require('dns');
 const os = require('os');
@@ -11,7 +11,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
 const interfaces = require('os').networkInterfaces();
-
+const qrcode = require('qrcode-terminal');
 const open = require('open');
 /**
  * 检测当前网络环境
@@ -69,21 +69,30 @@ exports.getIPAdress = function (url) {
 };
 
 /**
- * 获取IP
+ * 检测命令是否存在
  *
  * @return {boolean} 是否存在
  */
 
 exports.cmdExists = function (cmd) {
   try {
-    child_process.execSync(
-      os.platform() === 'win32'
-        ? `cmd /c "(help ${cmd} > nul || exit 0) && where ${cmd} > nul 2> nul"`
-        : `command -v ${cmd}`,
-    )
+    child_process.execSync(`where ${cmd} > nul 2> nul`)
     return true
   }
   catch {
     return false
   }
+}
+
+/**
+ * 生成二维码
+ *
+ * @return {string} 存在
+ */
+
+exports.generateQrcode = function (keyword) {
+  qrcode.generate(keyword, {small: true}, function (qrcode) {
+    console.log(chalk.blue('二维码已生成:'));
+    console.log(chalk.yellow.bgRed(qrcode));
+});
 }

@@ -23,6 +23,7 @@ specifiers:
   open: ^8.4.0
   ora: ^3.4.0
   path-to-regexp: ^3.0.0
+  qrcode-terminal: ^0.12.0
   request: ^2.88.2
   request-promise: ^4.2.6
   semver: ^7.3.8
@@ -52,6 +53,7 @@ dependencies:
   open: 8.4.0
   ora: 3.4.0
   path-to-regexp: 3.2.0
+  qrcode-terminal: 0.12.0
   request: 2.88.2
   request-promise: 4.2.6_request@2.88.2
   semver: 7.3.8
@@ -1308,6 +1310,11 @@ packages:
   /punycode/2.1.1:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}
     engines: {node: '>=6'}
+    dev: false
+
+  /qrcode-terminal/0.12.0:
+    resolution: {integrity: sha512-EXtzRZmC+YGmGlDFbXKxQiMZNwCLEO6BANKXG4iCtSIM0yqc/pappSx3RIKr4r0uh5JsBckOXeKrB3Iz7mdQpQ==}
+    hasBin: true
     dev: false
 
   /qs/6.11.0:

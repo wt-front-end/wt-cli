@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:49:22
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-11 22:15:03
+ * @LastEditTime: 2023-01-12 09:30:29
  */
 
 module.exports = {
@@ -35,7 +35,7 @@ module.exports = {
   DEV_DESC:'项目运行快捷命令',
   BUILD_DESC:'打包快捷命令',
   TIME:'时间转换',
-  QR:'内容生成二维码',
+  QRCODE_DESC:'内容生成二维码',
   NO_COMMAND: '命令不存在',
   INIT_DESC: '初始化一个项目',
   SKIN_DESC: 'H5 APP 换皮',

@@ -3,9 +3,11 @@
  * @Author: superDragon
  * @Date: 2019-08-30 11:21:05
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-11 21:59:46
+ * @LastEditTime: 2023-01-12 10:19:35
  */
 'use strict';
+// 提示文件
+const locals = require('../../locals')();
 // init 安装脚手架命令
 // const init = require('./action');
 // build 快捷打包
@@ -16,8 +18,8 @@ const weatherServer = require('./weather');
 const serachServer = require('./serach');
 // http
 const httpServer = require('./http');
-// 提示文件
-const locals = require('../../locals')();
+// qrcode
+const qrcodeServer = require('./qrcode');
 
 // 定义build命令
 exports.build = function(program) {
@@ -76,12 +78,12 @@ exports.serach = function(program) {
     }));
 }
 
-// 定义www命令
+// 定义http命令
 exports.http = function(program) {
   program
-    .command('www [path]')
+    .command('http [path]')
     .description(locals.HTTP_DESC)
-    .alias('w')
+    .alias('h')
     .option('-p, --port [port]', locals.HTTP_PORT)
     .option('-o, --open [open]', locals.HTTP_OPEN)
     .option('-d, --dir [dir]', locals.HTTP_URL)
@@ -93,4 +95,14 @@ exports.http = function(program) {
         })
         server.start();
     });
+}
+// 定义qrcode命令
+exports.qrcode = function(program) {
+  program
+    .command('qrcode [keyword]')
+    .description(locals.QRCODE_DESC)
+    .alias('q')
+    .action((keyword) => qrcodeServer({
+      keyword,
+    }));
 }
