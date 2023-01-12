@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:51:58
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 13:22:01
+ * @LastEditTime: 2023-01-12 13:44:09
  */
 const dns = require('dns');
 const os = require('os');
@@ -35,7 +35,7 @@ exports.getHome = function () {
     os.platform() === 'win32'
       ? 'APPDATA'
       : 'HOME'
-  ] + path.sep + '.ht-cli-project'
+  ] + path.sep + '.wt-cli-project'
 
   // 如果这个目录不存在，则创建这个目录
   !fs.existsSync(dir) && fs.mkdirSync(dir);

@@ -4,7 +4,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 13:35:05
+ * @LastEditTime: 2023-01-12 13:42:50
  */
 'use strict';
 const clear = require('clear');
@@ -45,7 +45,7 @@ checkUpdate().then(async () => {
   // 如果后序没有输入命令，执行帮助指令
   if (!process.argv[2] || !process.argv) {
     console.log(logo);
-    exec('wt -h').then((res) => {
+    exec('watone -h').then((res) => {
       console.log(res[0])
     })
   }
@@ -54,7 +54,7 @@ checkUpdate().then(async () => {
     let argv = process.argv[2];
 
     if (argv === '-V' || argv === '-v' || argv === '--version') {
-      clear();
+      // clear();
       console.log(logo);
       log.info('wt version: ', version);
       console.log(chalk.blue(locals.HELP_DESC));

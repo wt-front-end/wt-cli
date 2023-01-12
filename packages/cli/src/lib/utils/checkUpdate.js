@@ -1,12 +1,9 @@
 /*
- * @describe: 检查更新
+ * @describe: 检测是否需要更新版本
  * @Author: superDragon
  * @Date: 2019-08-30 14:18:24
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 13:25:19
- */
-/**
- * 检测是否需要更新版本
+ * @LastEditTime: 2023-01-12 14:12:41
  */
 
 'use strict';
@@ -17,32 +14,26 @@ const axios = require('axios');
 const semver = require('semver');
 const log = require('./log');
 const locals = require('../../locals')();
-
+let curVersion = process.env.VERSION;
 // 获取项目根目录
 const getHome = require('./index').getHome;
 
 const TIME_RANGE = 24 * 60 * 60 * 1000;
-const NPM_REGISTRY = 'https://registry.npmmirror.com/@watone/wt-cli';
+const NPM_REGISTRY = 'https://registry.npmjs.org/@watone/wt-cli';
 
 
-async function requestPackageInfo () {
-  try {
-    let packageInfo = await axios({
-      url: NPM_REGISTRY,
-      timeout: 1000
+function requestPackageInfo () {
+  axios.get(NPM_REGISTRY)
+    .then(res => {
+      // npm 上的版本号
+      let lastVersion = res.data['dist-tags'].latest;
+      if (semver.gt(lastVersion, curVersion)) {
+        log.info(log.chalk.bold.yellow(locals.UPDATE_TIPS));
+      }
+    })
+    .catch(error => {
+      console.log(error);
     });
-
-    // npm 上的版本号
-    let lastVersion = packageInfo.data['dist-tags'].latest;
-
-    // 当前版本号
-    let curVersion = require('../../../package.json').version;
-
-    if (semver.gt(lastVersion, curVersion)) {
-      log.info(log.chalk.bold.yellow(locals.UPDATE_TIPS));
-    }
-  }
-  catch (e) { }
 }
 
 module.exports = async function () {
@@ -52,7 +43,6 @@ module.exports = async function () {
   if (fs.existsSync(updateCheckerInfoPath)) {
     // 读取文件
     let updateCheckerInfo = fs.readFileSync(updateCheckerInfoPath, 'utf-8');
-
     if (Date.now() - (+updateCheckerInfo) >= TIME_RANGE) {
       await requestPackageInfo();
       fs.writeFileSync(updateCheckerInfoPath, Date.now() + '');
