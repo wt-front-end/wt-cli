@@ -3,14 +3,14 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:51:58
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 14:55:57
+ * @LastEditTime: 2023-01-13 10:26:46
  */
 const dns = require('dns');
 const os = require('os');
 const fs = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
-const interfaces = require('os').networkInterfaces();
+const ip = require('ip');
 const qrcode = require('qrcode-terminal');
 const open = require('open');
 const child_process = require('mz/child_process');
@@ -58,15 +58,7 @@ exports.openURL = function (url) {
  * @return {string} IP
  */
 exports.getIPAdress = function (url) {
-  for (var devName in interfaces) {
-    var iface = interfaces[devName];
-    for (var i = 0; i < iface.length; i++) {
-      var alias = iface[i];
-      if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
-        return alias.address;
-      }
-    }
-  }
+  return ip.address();
 };
 
 /**
@@ -78,9 +70,9 @@ exports.getIPAdress = function (url) {
 exports.cmdExists = function (cmd) {
   try {
     if (os.platform() === 'win32') {
-        child_process.execSync(`where ${cmd} > nul 2> nul`)
+      child_process.execSync(`where ${cmd} > nul 2> nul`)
     } else {
-        child_process.execSync(`which ${cmd}`)
+      child_process.execSync(`which ${cmd}`)
     }
     return true
   } catch {
@@ -95,8 +87,8 @@ exports.cmdExists = function (cmd) {
  */
 
 exports.generateQrcode = function (keyword) {
-  qrcode.generate(keyword, {small: true}, function (qrcode) {
+  qrcode.generate(keyword, { small: true }, function (qrcode) {
     console.log(chalk.blue('二维码已生成:'));
     console.log(qrcode);
-});
+  });
 }
