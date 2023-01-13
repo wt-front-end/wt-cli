@@ -4,7 +4,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 13:42:50
+ * @LastEditTime: 2023-01-12 15:07:07
  */
 'use strict';
 const clear = require('clear');
@@ -84,7 +84,7 @@ checkUpdate().then(async () => {
     .option('c, clone', locals.CLONE)
     .option('v, dev', locals.SERVER)
     .option('s, serach', locals.SERACH)
-    .option('i, ip', locals.IP)
+    .option('ip', locals.IP)
     .option('o, open', locals.OPEN)
     .option('h, http', locals.HTTP)
     .option('w, weather', locals.WEATHER)
