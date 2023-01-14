@@ -3,10 +3,11 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:51:58
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-13 10:26:46
+ * @LastEditTime: 2023-01-14 22:08:54
  */
 const dns = require('dns');
 const os = require('os');
+const request = require('request');
 const fs = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
@@ -22,6 +23,26 @@ const child_process = require('mz/child_process');
 exports.isNetworkConnect = function () {
   return new Promise((reslove) => {
     dns.lookup('so.com', (err) => reslove(!(err && err.code === 'ENOTFOUND')));
+  });
+}
+/**
+ * 检测当前网络环境
+ *
+ * @return {Boolean} 是否是在公司网络联网
+ */
+exports.isNetworkConnectWatone = function () {
+  let optinos = {
+    url:`http://30.207.88.65:8090`,
+    timeout:500
+}
+  return new Promise((reslove) => {
+    request(optinos, timeout=1, function (error, response, body) {
+      if (error) {
+        reslove(false)
+      } else {
+        reslove(true)
+      }
+    });
   });
 }
 
@@ -57,7 +78,7 @@ exports.openURL = function (url) {
  *
  * @return {string} IP
  */
-exports.getIPAdress = function (url) {
+exports.getIPAdress = function () {
   return ip.address();
 };
 

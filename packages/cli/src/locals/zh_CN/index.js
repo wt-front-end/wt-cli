@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:49:22
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 13:34:23
+ * @LastEditTime: 2023-01-14 22:14:50
  */
 
 module.exports = {
@@ -44,9 +44,11 @@ module.exports = {
   INIT_DESC: '初始化一个项目',
   SKIN_DESC: 'H5 APP 换皮',
   INIT_OPTION_FORCE: '初始化一个项目(强制覆盖)',
-  GREETING_GUIDE: '开始新建一个模版项目',
+  GREETING_GUIDE: '开始新建一个模版项目,请选择对应模版',
   NETWORK_DISCONNECT: '您已断网！所需服务需要连接到互联网',
   NETWORK_DISCONNECT_SUG: '请确认您的设备处于网络可访问的环境中',
+  NETWORK_DISCONNECTWATONE_SUG:'您处于非公司网络中,模版将会从互联网拉取',
+  NETWORK_DISCONNECTWATONE_SUCCESS:'您处于公司网络中,模版将会从公司仓库拉取',
   LOADING_FROM_CLOUD: '正在拉取云端数据，请稍候',
   INPUT_INVALID: '输入不符合规范',
   PLEASE_INPUT: '请输入',

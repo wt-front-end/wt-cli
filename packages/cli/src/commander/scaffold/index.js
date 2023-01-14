@@ -3,18 +3,18 @@
  * @Author: superDragon
  * @Date: 2019-08-30 11:21:05
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 11:28:28
+ * @LastEditTime: 2023-01-13 17:42:41
  */
 'use strict';
 // 提示文件
 const locals = require('../../locals')();
 // init 安装脚手架命令
-// const init = require('./action');
+const initServer = require('./init');
 // build 快捷打包
 const shortcutServer = require('./shortcut');
 // weather 天气
 const weatherServer = require('./weather');
-// 搜索
+// serach 搜索
 const serachServer = require('./serach');
 // http
 const httpServer = require('./http');
@@ -26,8 +26,22 @@ const translationServer = require('./translation');
 const ipServer = require('./ip');
 // open
 const openServer = require('./open');
+
+
+// 定义init命令
+exports.init = function (program) {
+  program
+    .command('init [cmd]')
+    .description(locals.INIT_DESC)
+    .option('-f, --force', locals.INIT_OPTION_FORCE)
+    .action((cmd, options) => initServer({
+      cmd: cmd,
+      force: options.force
+    }));
+}
+
 // 定义build命令
-exports.build = function(program) {
+exports.build = function (program) {
   program
     .command('build [cmd]')
     .description(locals.BUILD_DESC)
@@ -37,7 +51,7 @@ exports.build = function(program) {
     }));
 }
 // 定义dev命令
-exports.dev = function(program) {
+exports.dev = function (program) {
   program
     .command('dev [cmd]')
     .description(locals.DEV_DESC)
@@ -47,7 +61,7 @@ exports.dev = function(program) {
     }));
 }
 // 定义install命令
-exports.install = function(program) {
+exports.install = function (program) {
   program
     .command('install [cmd]')
     .description(locals.BUILD_DESC)
@@ -57,7 +71,7 @@ exports.install = function(program) {
     }));
 }
 // 定义weather命令
-exports.weather = function(program) {
+exports.weather = function (program) {
   program
     .command('weather [address]')
     .description(locals.WEATHER_DESC)
@@ -68,7 +82,7 @@ exports.weather = function(program) {
 }
 
 // 定义serach命令
-exports.serach = function(program) {
+exports.serach = function (program) {
   program
     .command('serach [q]')
     .description(locals.SERACH_DESC)
@@ -84,7 +98,7 @@ exports.serach = function(program) {
 }
 
 // 定义http命令
-exports.http = function(program) {
+exports.http = function (program) {
   program
     .command('http [path]')
     .description(locals.HTTP_DESC)
@@ -93,16 +107,16 @@ exports.http = function(program) {
     .option('-o, --open [open]', locals.HTTP_OPEN)
     .option('-d, --dir [dir]', locals.HTTP_URL)
     .action((path, options) => {
-        let server = new httpServer({
-          port: options.port,
-          open: options.open,
-          dir: path || options.dir,
-        })
-        server.start();
+      let server = new httpServer({
+        port: options.port,
+        open: options.open,
+        dir: path || options.dir,
+      })
+      server.start();
     });
 }
 // 定义qrcode命令
-exports.qrcode = function(program) {
+exports.qrcode = function (program) {
   program
     .command('qrcode [content]')
     .description(locals.QRCODE_DESC)
@@ -112,7 +126,7 @@ exports.qrcode = function(program) {
     }));
 }
 // 定义translation命令
-exports.translation = function(program) {
+exports.translation = function (program) {
   program
     .command('translation [keyword]')
     .description(locals.TRANSLATION_DESC)
@@ -122,14 +136,14 @@ exports.translation = function(program) {
     }));
 }
 // 定义ip命令
-exports.ip = function(program) {
+exports.ip = function (program) {
   program
     .command('ip')
     .description(locals.IP_DESC)
     .action(() => ipServer());
 }
 // 定义open命令
-exports.open = function(program) {
+exports.open = function (program) {
   program
     .command('open [url]')
     .alias('o')

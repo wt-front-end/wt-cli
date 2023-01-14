@@ -4,7 +4,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-12 15:07:07
+ * @LastEditTime: 2023-01-14 22:20:00
  */
 'use strict';
 const clear = require('clear');
@@ -16,7 +16,7 @@ const execSync = require('mz/child_process').execSync;
 const locals = require('../locals')();
 const log = require('../lib/utils/log');
 const utils = require('../lib/utils');
-const { build, weather, serach, http, dev, install, qrcode, translation, ip, open } = require('./scaffold');
+const { init, build, weather, serach, http, dev, install, qrcode, translation, ip, open } = require('./scaffold');
 // 检查版本更新方法
 const checkUpdate = require('../lib/utils/checkUpdate');
 
@@ -54,9 +54,10 @@ checkUpdate().then(async () => {
     let argv = process.argv[2];
 
     if (argv === '-V' || argv === '-v' || argv === '--version') {
-      // clear();
+      clear();
       console.log(logo);
-      log.info('wt version: ', version);
+      log.info(locals.WELECOME);
+      log.info('watone version: ', version);
       console.log(chalk.blue(locals.HELP_DESC));
       console.group(locals.SHOW_VERSION);
       console.table(tableVersion);
@@ -99,6 +100,7 @@ checkUpdate().then(async () => {
     });
 
   // 命令
+  init(program);
   build(program);
   weather(program);
   serach(program);
