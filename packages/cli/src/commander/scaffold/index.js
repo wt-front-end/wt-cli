@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-30 11:21:05
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-13 17:42:41
+ * @LastEditTime: 2023-01-16 18:01:45
  */
 'use strict';
 // 提示文件
@@ -26,16 +26,17 @@ const translationServer = require('./translation');
 const ipServer = require('./ip');
 // open
 const openServer = require('./open');
-
-
+// app
+const appServer = require('./app');
+// npm
+const npmServer = require('./npm');
 // 定义init命令
 exports.init = function (program) {
   program
-    .command('init [cmd]')
+    .command('init')
     .description(locals.INIT_DESC)
     .option('-f, --force', locals.INIT_OPTION_FORCE)
     .action((cmd, options) => initServer({
-      cmd: cmd,
       force: options.force
     }));
 }
@@ -151,4 +152,19 @@ exports.open = function (program) {
     .action((url) => openServer({
       url,
     }));
+}
+// 定义app命令
+exports.app = function (program) {
+  program
+    .command('app')
+    .description(locals.OPEN_DESC)
+    .action(() => appServer());
+}
+
+// 定义npm命令
+exports.npm = function (program) {
+  program
+    .command('npm [cmd]')
+    .description(locals.NPM_DESC)
+    .action((cmd) => npmServer(cmd));
 }

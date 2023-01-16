@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:51:58
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-14 22:08:54
+ * @LastEditTime: 2023-01-14 23:19:37
  */
 const dns = require('dns');
 const os = require('os');
@@ -36,7 +36,7 @@ exports.isNetworkConnectWatone = function () {
     timeout:500
 }
   return new Promise((reslove) => {
-    request(optinos, timeout=1, function (error, response, body) {
+    request(optinos, function (error, response, body) {
       if (error) {
         reslove(false)
       } else {

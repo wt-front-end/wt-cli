@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:49:22
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-14 22:14:50
+ * @LastEditTime: 2023-01-16 17:32:18
  */
 
 module.exports = {
@@ -45,6 +45,10 @@ module.exports = {
   SKIN_DESC: 'H5 APP 换皮',
   INIT_OPTION_FORCE: '初始化一个项目(强制覆盖)',
   GREETING_GUIDE: '开始新建一个模版项目,请选择对应模版',
+  NPM_DESC:'NPM、YARN、PNPM换源',
+  NPM_GUIDE:'上下按键切换源',
+  NPM_MESSAGE:'请选择哪个命令要换源',
+  NPM_SUCCESS:'您已成功使用 ',
   NETWORK_DISCONNECT: '您已断网！所需服务需要连接到互联网',
   NETWORK_DISCONNECT_SUG: '请确认您的设备处于网络可访问的环境中',
   NETWORK_DISCONNECTWATONE_SUG:'您处于非公司网络中,模版将会从互联网拉取',
@@ -59,7 +63,7 @@ module.exports = {
   PLEASE_SELECT_DESC: '按上下键选择',
   META_TEMPLATE_ERROR: '获取模版 Meta 信息出错',
   DOWNLOAD_TEMPLATE_ERROR: '下载模版出错，请检查当前网络',
-  LOADING_EXPORT_PROJECT: '正在导出工程',
+  LOADING_EXPORT_PROJECT: '成功下载工程',
   RENDER_TEMPLATE_ERROR: '模板渲染出错',
   INIT_SUCCESS: '项目已创建成功',
   INIT_NEXT_GUIDE: '您可以操作如下命令快速开始开发工程',
