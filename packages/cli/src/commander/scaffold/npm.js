@@ -1,7 +1,7 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-10 15:25:07
- * @LastEditTime: 2023-01-16 18:04:16
+ * @LastEditTime: 2023-01-17 13:57:26
  * @LastEditors: xkloveme
  * @Description: npm 换源
  * @FilePath: /watone-cli/packages/cli/src/commander/scaffold/npm.js
@@ -38,14 +38,14 @@ module.exports = async function (cmd) {
     name: "type", message: locals.NPM_MESSAGE, choices: []
   }]
   let config_url = {
-    npm: execSync('npm get registry', { encoding: 'utf8' }).replace(/[\r\n]/g, ""),
-    yarn: execSync('yarn config get registry', { encoding: 'utf8' }).replace(/[\r\n]/g, ""),
-    pnpm: execSync('pnpm get registry', { encoding: 'utf8' }).replace(/[\r\n]/g, ""),
+    npm: utils.cmdExists('npm') && execSync('npm get registry', { encoding: 'utf8' }).replace(/[\r\n]/g, ""),
+    yarn: utils.cmdExists('yarn') && execSync('yarn config get registry', { encoding: 'utf8' }).replace(/[\r\n]/g, ""),
+    pnpm: utils.cmdExists('pnpm') && execSync('pnpm get registry', { encoding: 'utf8' }).replace(/[\r\n]/g, ""),
   }
   if (cmd === 'ls' || cmd === 'list') {
-    console.log(chalk.green(`npm   --当前使用--  ${config_url['npm']}`))
-    console.log(chalk.green(`yarn  --当前使用--  ${config_url['yarn']}`))
-    console.log(chalk.green(`pnpm  --当前使用--  ${config_url['pnpm']}`))
+    config_url['npm'] && console.log(chalk.green(`npm   --当前使用--  ${config_url['npm']}`))
+    config_url['yarn'] && console.log(chalk.green(`yarn  --当前使用--  ${config_url['yarn']}`))
+    config_url['pnpm'] && console.log(chalk.green(`pnpm  --当前使用--  ${config_url['pnpm']}`))
     return
   }
   let set_str = {
@@ -53,9 +53,9 @@ module.exports = async function (cmd) {
     yarn: `yarn config set registry `,
     pnpm: `pnpm config set registry `,
   }
-  utils.cmdExists('npm') && registryList[0].choices.push({ name: `npm   --当前使用--  ${config_url['npm']}`, value: 'npm' })
-  utils.cmdExists('yarn') && registryList[0].choices.push({ name: `yarn  --当前使用--  ${config_url['yarn']}`, value: 'yarn' })
-  utils.cmdExists('pnpm') && registryList[0].choices.push({ name: `pnpm  --当前使用--  ${config_url['pnpm']}`, value: 'pnpm' })
+  config_url['npm'] && registryList[0].choices.push({ name: `npm   --当前使用--  ${config_url['npm']}`, value: 'npm' })
+  config_url['yarn'] && registryList[0].choices.push({ name: `yarn  --当前使用--  ${config_url['yarn']}`, value: 'yarn' })
+  config_url['pnpm'] && registryList[0].choices.push({ name: `pnpm  --当前使用--  ${config_url['pnpm']}`, value: 'pnpm' })
   inquirer.prompt(registryList).then(async (re) => {
     let type = re.type
     questions[0].default = config_url[type]

@@ -1,7 +1,7 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-10 15:25:07
- * @LastEditTime: 2023-01-16 16:29:07
+ * @LastEditTime: 2023-01-17 13:51:46
  * @LastEditors: xkloveme
  * @Description: 初始化项目
  * @FilePath: /watone-cli/packages/cli/src/commander/scaffold/init.js
@@ -55,19 +55,19 @@ const questions = [
 let urlObjList = {
   1: {
     gitlab: 'git@30.207.88.65:cli-templates/ruoyi-vue3.git',
-    github: '',
+    github: 'https://github.com/wt-front-end/vite4-vue3-ruoyi-web.git',
   },
   2: {
     gitlab: 'git@30.207.88.65:cli-templates/vite-uni-app-vue3.git',
-    github: '',
+    github: 'https://github.com/wt-front-end/vite-uni-app-vue3.git',
   },
   3: {
-    gitlab: '',
-    github: '',
+    gitlab: 'git@30.207.88.65:cli-templates/electron-vite-vue.git',
+    github: 'https://github.com/wt-front-end/electron-vite-vue',
   },
   4: {
-    gitlab: '',
-    github: '',
+    gitlab: 'git@30.207.88.65:cli-templates/vite-tailwind-dataV.git',
+    github: 'https://github.com/wt-front-end/vite-tailwind-dataV.git',
   }
 }
 /**
