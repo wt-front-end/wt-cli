@@ -4,7 +4,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-16 16:34:53
+ * @LastEditTime: 2023-01-17 09:34:34
  */
 'use strict';
 const clear = require('clear');
@@ -81,16 +81,11 @@ checkUpdate().then(async () => {
     .usage('[commands] [options]')
     // 定义顶级命令的参数语法。
     .arguments('[cmd]')
-    .option('b, build', locals.BUILD)
-    .option('c, clone', locals.CLONE)
-    .option('v, dev', locals.SERVER)
-    .option('s, serach', locals.SERACH)
-    .option('ip', locals.IP)
-    .option('o, open', locals.OPEN)
-    .option('h, http', locals.HTTP)
-    .option('w, weather', locals.WEATHER)
-    .option('t, time', locals.TIME)
-    .option('q, qr', locals.QRCODE_DESC)
+    .option('-f, --force', locals.FORCE_OPTION)
+    .option('ls', locals.LS_OPTION)
+    .option('-p, --port', locals.PORT_OPTION)
+    .option('-o, --open', locals.HTTP_OPEN_OPTION)
+    .option('-d, --dir', locals.HTTP_URL_OPTION)
     .option('-v, --version', locals.SHOW_VERSION)
     // 注册命令的回调
     .action((cmd) => {

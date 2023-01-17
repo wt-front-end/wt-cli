@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-30 11:21:05
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-16 18:01:45
+ * @LastEditTime: 2023-01-17 09:37:22
  */
 'use strict';
 // 提示文件
@@ -157,14 +157,14 @@ exports.open = function (program) {
 exports.app = function (program) {
   program
     .command('app')
-    .description(locals.OPEN_DESC)
+    .description(locals.APP_DESC)
     .action(() => appServer());
 }
 
 // 定义npm命令
 exports.npm = function (program) {
   program
-    .command('npm [cmd]')
+    .command('npm [ls]')
     .description(locals.NPM_DESC)
-    .action((cmd) => npmServer(cmd));
+    .action((ls) => npmServer(ls));
 }
