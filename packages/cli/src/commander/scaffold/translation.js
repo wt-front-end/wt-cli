@@ -1,7 +1,7 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-10 15:25:07
- * @LastEditTime: 2023-01-12 10:47:26
+ * @LastEditTime: 2023-01-17 15:41:55
  * @LastEditors: xkloveme
  * @Description: 翻译服务
  * @FilePath: /watone-cli/packages/cli/src/commander/scaffold/translation.js
