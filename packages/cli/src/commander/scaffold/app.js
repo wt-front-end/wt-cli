@@ -6,8 +6,7 @@ const utils = require('../../lib/utils');
 
 module.exports = function () {
   const app = express();
-  // app.use(express.static(path.join(process.cwd(), 'www/project-view/dist')));
-  app.use(express.static(path.resolve(process.cwd(), 'www/project-view/dist')));
+  app.use(express.static(path.join(__dirname, '../../../../../www/project-view/dist')));
   let port = 9159;
   const server = app.listen(port, () => {
     let myIP = utils.getIPAdress();
