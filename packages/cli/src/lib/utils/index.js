@@ -81,6 +81,26 @@ exports.openURL = function (url) {
 exports.getIPAdress = function () {
   return ip.address();
 };
+/**
+ * 获取所以有IP
+ *
+ * @return {array} IP
+ */
+exports.getIPAdressAll = function (networkName) {
+  const interfaces = os.networkInterfaces();
+  let addresses = [];
+  Object.keys(interfaces).forEach(function (interfaceName) {
+      if(networkName && interfaceName !== networkName) return;
+      const iface = interfaces[interfaceName];
+      for (let i = 0; i < iface.length; i++) {
+          const address = iface[i];
+          if (address.family === 'IPv4' && !address.internal) {
+              addresses.push(address.address);
+          }
+      }
+  });
+  return addresses;
+};
 
 /**
  * 检测命令是否存在
