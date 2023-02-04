@@ -1,6 +1,6 @@
 <!--
  * @Date: 2023-02-03
- * @LastEditTime: 2023-02-04 21:44:27
+ * @LastEditTime: 2023-02-04 22:05:56
  * @LastEditors: xkloveme
  * @FileDesc:主页
  * @FilePath: /watone-cli/app/src/views/home.vue
@@ -18,7 +18,7 @@
             <div class="app-menu-content-header-section">
               <div id="app-menu-info" class="info"><span class="time">8:28</span><span class="weather"><i
                     class="i-uil-sun"></i><span class="weather-temperature-value">71</span><span
-                    class="weather-temperature-unit">°F</span></span></div>
+                    class="weather-temperature-unit">°C</span></span></div>
               <div class="reminder">
                 <span class="reminder-text">Extra
                   cool people meeting <span class="reminder-time">10AM</span></span>
@@ -28,55 +28,55 @@
                 class="user-status-button clear-button" type="button"><i class="i-uil-exit"></i></button></div>
           </div>
           <div class="scrollable-component" id="quick-nav">
-            <div class="quick-nav-item clear-button"><span class="quick-nav-item-label">天气</span></div>
-            <div class="quick-nav-item clear-button"><span class="quick-nav-item-label">工具</span></div>
-            <div class="quick-nav-item clear-button"><span class="quick-nav-item-label">应用</span></div>
-            <div class="quick-nav-item clear-button"><span class="quick-nav-item-label">链接</span></div>
+            <div class="quick-nav-item clear-button" @click="goAnchor('weather_id')"><span class="quick-nav-item-label">天气</span></div>
+            <div class="quick-nav-item clear-button" @click="goAnchor('tools_id')"><span class="quick-nav-item-label">工具</span></div>
+            <div class="quick-nav-item clear-button" @click="goAnchor('app_id')"><span class="quick-nav-item-label">应用</span></div>
+            <div class="quick-nav-item clear-button" @click="goAnchor('links_id')"><span class="quick-nav-item-label">链接</span></div>
           </div><a id="youtube-link" class="clear-button" @click="handleProject" target="_blank"><span>项目概览</span></a>
           <div id="weather-section" class="menu-section">
-            <div class="rainbow-container"><i class="rainbow"></i></div>
-            <div class="menu-section-title"><span class="menu-section-title-text">最近的天气如何?</span></div>
+            <div class="rainbow-container" id="weather_id"><i class="rainbow"></i></div>
+            <div class="menu-section-title" ><span class="menu-section-title-text">最近的天气如何?</span></div>
             <div class="scrollable-component menu-section-content">
               <div class="day-card">
                 <div class="day-card-content"><span class="day-weather-temperature">66<span
-                      class="day-weather-temperature-unit">°F</span></span><i
+                      class="day-weather-temperature-unit">°C</span></span><i
                     class="day-weather-icon sun"></i><span class="day-name">Mon</span></div>
               </div>
               <div class="day-card">
                 <div class="day-card-content"><span class="day-weather-temperature">74<span
-                      class="day-weather-temperature-unit">°F</span></span><i
+                      class="day-weather-temperature-unit">°C</span></span><i
                     class="day-weather-icon cloudy"></i><span class="day-name">Tues</span></div>
               </div>
               <div class="day-card">
                 <div class="day-card-content"><span class="day-weather-temperature">66<span
-                      class="day-weather-temperature-unit">°F</span></span><i
+                      class="day-weather-temperature-unit">°C</span></span><i
                     class="day-weather-icon rainy"></i><span class="day-name">Wed</span></div>
               </div>
               <div class="day-card">
                 <div class="day-card-content"><span class="day-weather-temperature">75<span
-                      class="day-weather-temperature-unit">°F</span></span><i
+                      class="day-weather-temperature-unit">°C</span></span><i
                     class="day-weather-icon breeze"></i><span class="day-name">Thurs</span>
                 </div>
               </div>
               <div class="day-card">
                 <div class="day-card-content"><span class="day-weather-temperature">60<span
-                      class="day-weather-temperature-unit">°F</span></span><i
+                      class="day-weather-temperature-unit">°C</span></span><i
                     class="day-weather-icon starry"></i><span class="day-name">Fri</span></div>
               </div>
               <div class="day-card">
                 <div class="day-card-content"><span class="day-weather-temperature">60<span
-                      class="day-weather-temperature-unit">°F</span></span><i
+                      class="day-weather-temperature-unit">°C</span></span><i
                     class="day-weather-icon thunder"></i><span class="day-name">Sat</span></div>
               </div>
               <div class="day-card">
                 <div class="day-card-content"><span class="day-weather-temperature">76<span
-                      class="day-weather-temperature-unit">°F</span></span><i
+                      class="day-weather-temperature-unit">°C</span></span><i
                     class="day-weather-icon snowy"></i><span class="day-name">Sun</span></div>
               </div>
             </div>
           </div>
           <div id="restaurants-section" class="menu-section">
-            <div class="menu-section-title"><i class="fa-regular fa-pot-food"></i><span
+            <div class="menu-section-title" id="tools_id"><i class="i-uil-briefcase-alt"></i><span
                 class="menu-section-title-text">Get it tools!</span></div>
             <div class="menu-section-content">
               <div class="restaurant-card background-image"
@@ -110,7 +110,7 @@
             </div>
           </div>
           <div id="tools-section" class="menu-section">
-            <div class="menu-section-title"><i class="fa-solid fa-toolbox"></i><span
+            <div class="menu-section-title" id="app_id"><i class="i-uil-apps"></i><span
                 class="menu-section-title-text">What's Apps?</span></div>
             <div class="menu-section-content">
               <div class="tool-card">
@@ -171,8 +171,8 @@
             </div>
           </div>
           <div id="movies-section" class="menu-section">
-            <div class="menu-section-title"><i class="fa-solid fa-camera-movie"></i><span
-                class="menu-section-title-text">link it!</span></div>
+            <div class="menu-section-title" id="links_id"><i class="i-uil-link"></i><span
+                class="menu-section-title-text">Link it!</span></div>
             <div class="scrollable-component menu-section-content">
               <div id="movie-card-1" class="movie-card">
                 <div class="movie-card-background background-image"
@@ -237,6 +237,10 @@ function handleProject () {
     name: "Project"
   });
   window.open(routeData.href, '_blank');
+}
+function goAnchor(id){
+  let anchor = document.getElementById(id);
+      anchor.scrollIntoView();
 }
 // onMounted(() => {});
 </script>

@@ -1,6 +1,6 @@
 <!--
  * @Date: 2023-02-03
- * @LastEditTime: 2023-02-04 20:21:37
+ * @LastEditTime: 2023-02-04 21:54:33
  * @LastEditors: xkloveme
  * @FileDesc: 登录页
  * @FilePath: /watone-cli/app/src/views/login.vue
@@ -60,6 +60,7 @@ function handleOnChange (e) {
     e.target.value = e.target.value.toString().slice(0, 4)
   }
 }
+onMounted(() => {autofocusInput()});
 </script>
 
 <style scoped lang="scss">
