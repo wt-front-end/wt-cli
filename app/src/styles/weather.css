@@ -2,12 +2,12 @@
 .sun{
   position: absolute;
   top: 50%;left: 50%;
-  width:200px;height:260px;
+  /* width:200px;height:260px; */
   transform: translate(-50%, -50%);
   text-align:center;
   font-size:200%;
   color:#fff;
-  background:#0BF;
+  /* background:#0BF; */
   border-radius:5px;
 }
 .sun:before{
@@ -50,16 +50,15 @@
 /* 多云 cloudy */
 
 .cloudy {
-  position: absolute;
+   position: absolute;
   top: 50%;
   left: 50%;
   width: 200px;
-  height: 260px;
+  height: 200px;
   transform: translate(-50%, -50%);
   text-align: center;
   font-size: 200%;
   color: #fff;
-  background: #2EB5E5;
   border-radius: 5px;
 }
 
@@ -84,7 +83,7 @@
     #FFFFFF 30px 10px,
     #FFFFFF 60px 15px 0 -10px,
     #FFFFFF 85px 5px 0 -5px;
-  animation: cloudy2 5s ease-in-out infinite;
+  animation: cloudy 5s ease-in-out infinite;
 }
 
 .cloudy:after {
@@ -99,7 +98,7 @@
   border-radius: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 10px 4px #FFA563;
-  animation: cloudy2 10s ease-in-out infinite;
+  animation: cloudy 10s ease-in-out infinite;
 }
 
 @keyframes cloudy {
@@ -114,19 +113,6 @@
 
 /* 雨（rainy） */
 
-.rainy-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200px;
-  height: 260px;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-size: 200%;
-  color: #fff;
-  background: #E6E6E6;
-  border-radius: 5px;
-}
 
 .rainy {
   position: absolute;
@@ -145,7 +131,7 @@
   position: absolute;
   height: 50px;
   width: 50px;
-  top: 30px;
+  top: 41px;
   left: -40px;
   background: #CCC;
   transform: translate(-50%, -50%);
@@ -157,7 +143,7 @@
 .rainy:after {
   content: "";
   position: absolute;
-  top: 120px;
+  top: 100px;
   left: 50%;
   height: 15px;
   width: 120px;
@@ -224,27 +210,6 @@
 }
 
 /* 微风（breeze） */
-.breeze-container{
-  position: absolute;
-  top: 50%;left: 50%;
-  width:200px;height:260px;
-  transform: translate(-50%, -50%);
-  text-align:center;
-  font-size:200%;
-  color:#fff;
-  background:#00BBFF;
-  border-radius:5px;
-}
-.breeze-container:after{
-  content:"";
-  position:absolute;
-  top:58%;
-  left:50%;
-  transform: translate(-50%, -50%);
-  width:6px;
-  height:70px;
-  background:#fff;
-}
 .breeze{
   position:absolute;
   top: 30%;
@@ -285,14 +250,10 @@
 
 /* 彩虹（rainbow） */
 .rainbow-container{
-  position: absolute;
-  top: 50%;left: 50%;
-  width:200px;height:260px;
-  transform: translate(-50%, -50%);
+  transform: translate(-44%, -50%);
   text-align:center;
   font-size:200%;
   color:#fff;
-  background:#F3D166;
   border-radius:5px;
 }
 .rainbow{
@@ -322,7 +283,7 @@
 .rainbow:after{
   content: "";
   position: absolute;
-  top: 70px;
+  top: 40px;
   left: 50%;
   height: 15px;
   width: 120px;
@@ -351,20 +312,9 @@
 }
 
 /* 夜空璀璨（starry） */
-.starry-container{
-  position: absolute;
-  top: 50%;left: 50%;
-  width:200px;height:260px;
-  transform: translate(-50%, -50%);
-  text-align:center;
-  font-size:200%;
-  color:#fff;
-  background:#222233;
-  border-radius:5px;
-}
 .starry{
   position:absolute;
-  top: 30%;left: 40%;
+  top: 22%;left: 40%;
   transform: translate(-50%, -50%);
   height: 4px;width: 4px;
   border-radius:50%;
@@ -420,26 +370,12 @@
     }
 }
 /* 雷电（thunder） */
-
-.thunder-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200px;
-  height: 260px;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-size: 200%;
-  color: #fff;
-  background: #444;
-  border-radius: 5px;
-}
 .thunder {
   color: #333;
   position: absolute;
   height: 50px;
   width: 50px;
-  top: 40%;
+  top: 45%;
   left: 30%;
   background: #222;
   transform: translate(-50%, -50%);
@@ -455,7 +391,7 @@
 .thunder:before {
   content: "";
   position: absolute;
-  top: 60px;
+  top: 41px;
   left: 60px;
   border-left: 0px solid transparent;
   border-right: 8px solid transparent;
@@ -468,7 +404,7 @@
 .thunder:after {
   content: "";
   position: absolute;
-  top: 120px;
+  top: 90px;
   left: 64px;
   height: 15px;
   width: 120px;
@@ -542,7 +478,7 @@
 .snowy:after {
   content: "";
   position: absolute;
-  top: 120px;
+  top: 95px;
   left: 50%;
   height: 15px;
   width: 120px;

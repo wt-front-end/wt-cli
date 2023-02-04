@@ -5,6 +5,7 @@ import { createWebHashHistory, createRouter } from "vue-router";
 export const constantRoutes = [
   {
     path: "/login",
+    name: "Login",
     component: () => import("@/views/login.vue"),
   },
   {
@@ -16,6 +17,12 @@ export const constantRoutes = [
     component: () => import("@/views/index.vue"),
     name: "Index",
     meta: { title: "首页" }
+  },
+  {
+    path: "/home",
+    component: () => import("@/views/home.vue"),
+    name: "Home",
+    meta: { title: "主页" }
   },
   {
     path: "/project",

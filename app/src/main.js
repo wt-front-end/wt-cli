@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
-import '@/style/style.css'
-import '@/style/weather.css'
+import "@/styles/app.scss"; // global css
 import App from './App.vue'
 import 'uno.css'
 import router from './router'
