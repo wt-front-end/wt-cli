@@ -6,7 +6,7 @@ const utils = require('../../lib/utils');
 
 module.exports = function () {
   const app = express();
-  app.use(express.static(path.join(__dirname, '../../../../../www/project-view/dist')));
+  app.use(express.static(path.join(__dirname, '../../../../../app/dist')));
   let port = 9159;
   const server = app.listen(port, () => {
     let myIP = utils.getIPAdress();
@@ -26,7 +26,7 @@ module.exports = function () {
   });
 
   app.get('/', (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'www/project-view/dist', 'index.html'));
+    res.sendFile(path.join(process.cwd(), 'app/dist', 'index.html'));
   });
 
   // 接口
