@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-30 11:21:05
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-17 09:37:22
+ * @LastEditTime: 2023-01-18 10:56:53
  */
 'use strict';
 // 提示文件
@@ -30,6 +30,9 @@ const openServer = require('./open');
 const appServer = require('./app');
 // npm
 const npmServer = require('./npm');
+// play
+const playServer = require('./play');
+
 // 定义init命令
 exports.init = function (program) {
   program
@@ -167,4 +170,12 @@ exports.npm = function (program) {
     .command('npm [ls]')
     .description(locals.NPM_DESC)
     .action((ls) => npmServer(ls));
+}
+
+// 定义play命令
+exports.play = function (program) {
+  program
+    .command('play [game]')
+    .description(locals.GAME_DESC)
+    .action((game) => playServer(game));
 }

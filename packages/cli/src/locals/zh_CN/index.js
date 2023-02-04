@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:49:22
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-17 09:38:27
+ * @LastEditTime: 2023-01-18 10:53:27
  */
 
 module.exports = {
@@ -67,6 +67,7 @@ module.exports = {
   PORT_OPTION:'HTTP 命令指定端口',
   HTTP_OPEN_OPTION:'HTTP 命令是否打开浏览器(默认打开)',
   HTTP_URL_OPTION:'HTTP 命令指定启动路径',
+  GAME_DESC:'PLAY 命令',
   META_TEMPLATE_ERROR: '获取模版 Meta 信息出错',
   DOWNLOAD_TEMPLATE_ERROR: '下载模版出错，请检查当前网络',
   LOADING_EXPORT_PROJECT: '成功下载工程',
