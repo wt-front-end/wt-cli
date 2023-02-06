@@ -106,7 +106,8 @@ body {
   }
 }
 
-$backgroundImage: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2076&q=80";
+$backgroundImage: "../assets/2.webp";
+
 
 .background-image {
   background-position: center;
@@ -386,6 +387,7 @@ $backgroundImage: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?
     padding-bottom: 5px;
     width: 100%;
     z-index: 3;
+    flex-wrap: wrap;
 
     .quick-nav-item {
       padding: 10px 20px;
@@ -425,7 +427,7 @@ $backgroundImage: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?
   }
 
   .menu-section {
-    margin-top: 60px;
+    margin-top: 65px;
 
     .menu-section-title {
       align-items: center;
@@ -925,6 +927,7 @@ $backgroundImage: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?
 
     #sign-in-button-wrapper {
       bottom: 40px;
+      top: auto;
       right: 10%;
       transform: translate(40px, 0px);
     }
@@ -964,6 +967,15 @@ $backgroundImage: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?
 
 @media(max-width: 600px) {
   .main-index {
+    .rainbow-container{
+      transform: translate(-28%, -50%);
+    }
+    &.logged-out {
+      #sign-in-button-wrapper {
+        top: 50%;
+        right: 30%;
+      }
+    }
     .info {
       .time {
         font-size: 4em;
@@ -973,7 +985,7 @@ $backgroundImage: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?
     }
 
     .user-status-button {
-      width: 60px;
+      width: 80px;
     }
 
     #app-menu {

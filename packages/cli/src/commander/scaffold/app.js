@@ -3,7 +3,7 @@ const path = require('path');    // 路径获取
 const request = require('request');
 const chalk = require('chalk');
 const utils = require('../../lib/utils');
-
+const AppConfig = require('../../lib/utils/app');
 module.exports = function () {
   const app = express();
   app.use(express.static(path.join(__dirname, '../../../../../app/dist')));
@@ -46,6 +46,16 @@ module.exports = function () {
       }
     });
   });
+  // 获取app 配置密码校验
+  app.get('/api/pwdCheck', function (req, res) {
+    if (!req.query?.pwd) {
+      return res.status(204);
+    }
+    AppConfig().then(async (json) => {
+      console.log(req.query?.pwd,json.pwd)
+      return res.status(200).send(req.query?.pwd==json.pwd);
+    })
+  });
 
   function findAvailablePort (startPort) {
     let currentPort = startPort;
@@ -60,6 +70,6 @@ module.exports = function () {
         }
       }
     }
-    throw new Error(`No available port found starting at ${ startPort }`);
+    throw new Error(`No available port found starting at ${startPort}`);
   }
 }

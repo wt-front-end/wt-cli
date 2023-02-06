@@ -1,6 +1,6 @@
 <!--
  * @Date: 2023-02-03
- * @LastEditTime: 2023-02-04 21:54:33
+ * @LastEditTime: 2023-02-05 15:56:21
  * @LastEditors: xkloveme
  * @FileDesc: 登录页
  * @FilePath: /watone-cli/app/src/views/login.vue
@@ -32,7 +32,7 @@
             ""
         }}</span></div>
       </div>
-      <h3 id="app-pin-label">Enter PIN (1234) <span id="app-pin-cancel-text" @click="gotoIndex">Cancel</span></h3>
+      <h3 id="app-pin-label">Enter PIN (7053) <span id="app-pin-cancel-text" @click="gotoIndex">Cancel</span></h3>
     </div>
   </div>
 </template>
@@ -47,11 +47,15 @@ let appPinInput = ref()
 function autofocusInput (e) {
   appPinInput.value && appPinInput.value.focus()
 }
-function enterInput (e) {
-  console.log("🐛 ~ file: login.vue:51 ~ enterInput ~ e", e.target.value.toString());
-if(e.target.value.toString()=='1234'){
-  router.push({ name: "Home" })
-}
+async function enterInput (e) {
+  if (e.target.value.toString().length!==4) {
+    return
+  }
+  const response = await fetch(`/api/pwdCheck?pwd=${e.target.value.toString()}`);
+  const status = await response.json();
+  if(status){
+    router.push({ name: "Home" })
+  }
 }
 function handleOnChange (e) {
   if (e.target.value.length <= 4) {
@@ -60,7 +64,7 @@ function handleOnChange (e) {
     e.target.value = e.target.value.toString().slice(0, 4)
   }
 }
-onMounted(() => {autofocusInput()});
+onMounted(() => { autofocusInput() });
 </script>
 
 <style scoped lang="scss">
