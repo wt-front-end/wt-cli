@@ -74,13 +74,13 @@
       <nav class="mt-2">
         <div>
           <a :class="active == 0 ? 'border-blue-500 text-blue-500 w-full font-thin uppercase  flex items-center p-2 my-1 transition-colors duration-200 justify-start bg-gradient-to-r from-white to-blue-100 border-r-4 border-blue-500 dark:from-gray-700 dark:to-gray-800 border-r-4' : 'w-full font-thin uppercase text-gray-500 dark:text-gray-200 flex items-center p-2 my-1 transition-colors duration-200 justify-start hover:text-blue-500'"
-            @click="handleClick(0, null)" href="#">
+            @click="handleClick(0, null)">
             <span class="mx-1 text-sm font-normal">
               全部
             </span>
           </a>
           <a :class="active == i + 1 ? 'border-blue-500 text-blue-500 w-full font-thin uppercase  flex items-center p-2 my-1 transition-colors duration-200 justify-start bg-gradient-to-r from-white to-blue-100 border-r-4 border-blue-500 dark:from-gray-700 dark:to-gray-800 border-r-4' : 'w-full font-thin uppercase text-gray-500 dark:text-gray-200 flex items-center p-2 my-1  transition-colors duration-200 justify-start hover:text-blue-500'"
-            @click="handleClick(i + 1, link.list)" href="#" v-for="(link, i) in listAll" :key="i">
+            @click="handleClick(i + 1, link.list)"  v-for="(link, i) in listAll" :key="i">
             <span class="mx-1 text-sm font-normal">
               {{ link.name }}
             </span>
