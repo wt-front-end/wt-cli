@@ -52,10 +52,15 @@ module.exports = function () {
       return res.status(204);
     }
     AppConfig().then(async (json) => {
-      console.log(req.query?.pwd,json.pwd)
       return res.status(200).send(req.query?.pwd==json.pwd);
     })
   });
+    // 获取app 配置信息
+    app.get('/api/config', function (req, res) {
+      AppConfig().then(async (json) => {
+        return res.status(200).send(json);
+      })
+    });
 
   function findAvailablePort (startPort) {
     let currentPort = startPort;

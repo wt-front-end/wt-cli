@@ -24,6 +24,7 @@ module.exports = async function () {
     let dirname = path.dirname(updateAPPconfigPath);
     const appConfig = {
       "pwd": 7053,
+      "needPwd": false,
       "address": "hangzhou",
       "update":Date.now()
     };

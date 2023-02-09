@@ -1,6 +1,6 @@
 <!--
  * @Date: 2023-02-03
- * @LastEditTime: 2023-02-04 22:05:56
+ * @LastEditTime: 2023-02-09 13:34:35
  * @LastEditors: xkloveme
  * @FileDesc:主页
  * @FilePath: /watone-cli/app/src/views/home.vue
@@ -16,7 +16,7 @@
         <div id="app-menu-content">
           <div id="app-menu-content-header">
             <div class="app-menu-content-header-section">
-              <div id="app-menu-info" class="info"><span class="time">8:28</span><span class="weather"><i
+              <div id="app-menu-info" class="info"><span class="time">{{ time }}</span><span class="weather"><i
                     class="i-uil-sun"></i><span class="weather-temperature-value">71</span><span
                     class="weather-temperature-unit">°C</span></span></div>
               <div class="reminder">
@@ -28,50 +28,54 @@
                 class="user-status-button clear-button" type="button"><i class="i-uil-exit"></i></button></div>
           </div>
           <div class="scrollable-component" id="quick-nav">
-            <div class="quick-nav-item clear-button" @click="goAnchor('weather_id')"><span class="quick-nav-item-label">天气</span></div>
-            <div class="quick-nav-item clear-button" @click="goAnchor('tools_id')"><span class="quick-nav-item-label">工具</span></div>
-            <div class="quick-nav-item clear-button" @click="goAnchor('app_id')"><span class="quick-nav-item-label">应用</span></div>
-            <div class="quick-nav-item clear-button" @click="goAnchor('links_id')"><span class="quick-nav-item-label">链接</span></div>
+            <div class="quick-nav-item clear-button" @click="goAnchor('weather_id')"><span
+                class="quick-nav-item-label">天气</span></div>
+            <div class="quick-nav-item clear-button" @click="goAnchor('tools_id')"><span
+                class="quick-nav-item-label">工具</span></div>
+            <div class="quick-nav-item clear-button" @click="goAnchor('app_id')"><span
+                class="quick-nav-item-label">应用</span></div>
+            <div class="quick-nav-item clear-button" @click="goAnchor('links_id')"><span
+                class="quick-nav-item-label">链接</span></div>
           </div><a id="youtube-link" class="clear-button" @click="handleProject" target="_blank"><span>项目概览</span></a>
           <div id="weather-section" class="menu-section">
             <div class="rainbow-container" id="weather_id"><i class="rainbow"></i></div>
-            <div class="menu-section-title" ><span class="menu-section-title-text">最近的天气如何?</span></div>
+            <div class="menu-section-title"><span class="menu-section-title-text">最近的天气如何?</span></div>
             <div class="scrollable-component menu-section-content">
               <div class="day-card">
                 <div class="day-card-content"><span class="day-weather-temperature">66<span
-                      class="day-weather-temperature-unit">°C</span></span><i
-                    class="day-weather-icon sun"></i><span class="day-name">Mon</span></div>
+                      class="day-weather-temperature-unit">°C</span></span><i class="day-weather-icon sun"></i><span
+                    class="day-name">Mon</span></div>
               </div>
               <div class="day-card">
                 <div class="day-card-content"><span class="day-weather-temperature">74<span
-                      class="day-weather-temperature-unit">°C</span></span><i
-                    class="day-weather-icon cloudy"></i><span class="day-name">Tues</span></div>
+                      class="day-weather-temperature-unit">°C</span></span><i class="day-weather-icon cloudy"></i><span
+                    class="day-name">Tues</span></div>
               </div>
               <div class="day-card">
                 <div class="day-card-content"><span class="day-weather-temperature">66<span
-                      class="day-weather-temperature-unit">°C</span></span><i
-                    class="day-weather-icon rainy"></i><span class="day-name">Wed</span></div>
+                      class="day-weather-temperature-unit">°C</span></span><i class="day-weather-icon rainy"></i><span
+                    class="day-name">Wed</span></div>
               </div>
               <div class="day-card">
                 <div class="day-card-content"><span class="day-weather-temperature">75<span
-                      class="day-weather-temperature-unit">°C</span></span><i
-                    class="day-weather-icon breeze"></i><span class="day-name">Thurs</span>
+                      class="day-weather-temperature-unit">°C</span></span><i class="day-weather-icon breeze"></i><span
+                    class="day-name">Thurs</span>
                 </div>
               </div>
               <div class="day-card">
                 <div class="day-card-content"><span class="day-weather-temperature">60<span
-                      class="day-weather-temperature-unit">°C</span></span><i
-                    class="day-weather-icon starry"></i><span class="day-name">Fri</span></div>
+                      class="day-weather-temperature-unit">°C</span></span><i class="day-weather-icon starry"></i><span
+                    class="day-name">Fri</span></div>
               </div>
               <div class="day-card">
                 <div class="day-card-content"><span class="day-weather-temperature">60<span
-                      class="day-weather-temperature-unit">°C</span></span><i
-                    class="day-weather-icon thunder"></i><span class="day-name">Sat</span></div>
+                      class="day-weather-temperature-unit">°C</span></span><i class="day-weather-icon thunder"></i><span
+                    class="day-name">Sat</span></div>
               </div>
               <div class="day-card">
                 <div class="day-card-content"><span class="day-weather-temperature">76<span
-                      class="day-weather-temperature-unit">°C</span></span><i
-                    class="day-weather-icon snowy"></i><span class="day-name">Sun</span></div>
+                      class="day-weather-temperature-unit">°C</span></span><i class="day-weather-icon snowy"></i><span
+                    class="day-name">Sun</span></div>
               </div>
             </div>
           </div>
@@ -79,32 +83,28 @@
             <div class="menu-section-title" id="tools_id"><i class="i-uil-briefcase-alt"></i><span
                 class="menu-section-title-text">Get it tools!</span></div>
             <div class="menu-section-content">
-              <div class="restaurant-card background-image"
-                style="background-image: url(&quot;https://images.unsplash.com/photo-1606131731446-5568d87113aa?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YnVyZ2Vyc3xlbnwwfHwwfHw%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60&quot;);">
+              <div class="restaurant-card background-image" :style="{ 'background-image': `url(${home13})` }">
                 <div class="restaurant-card-content">
-                  <div class="restaurant-card-content-items"><span class="restaurant-card-title">Burgers</span><span
-                      class="restaurant-card-desc">The best burgers in town</span></div>
+                  <div class="restaurant-card-content-items"><span class="restaurant-card-title">JSON</span><span
+                      class="restaurant-card-desc">最好的JSON 格式化工具</span></div>
                 </div>
               </div>
-              <div class="restaurant-card background-image"
-                style="background-image: url(&quot;https://images.unsplash.com/photo-1576506295286-5cda18df43e7?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aWNlJTIwY3JlYW18ZW58MHx8MHx8&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60&quot;);">
+              <div class="restaurant-card background-image" :style="{ 'background-image': `url(${home7})` }">
                 <div class="restaurant-card-content">
-                  <div class="restaurant-card-content-items"><span class="restaurant-card-title">Ice Cream</span><span
-                      class="restaurant-card-desc">The worst ice-cream around</span></div>
+                  <div class="restaurant-card-content-items"><span class="restaurant-card-title">HTML</span><span
+                      class="restaurant-card-desc">在线编写HTML</span></div>
                 </div>
               </div>
-              <div class="restaurant-card background-image"
-                style="background-image: url(&quot;https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emF8ZW58MHx8MHx8&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60&quot;);">
+              <div class="restaurant-card background-image" :style="{ 'background-image': `url(${home11})` }">
                 <div class="restaurant-card-content">
-                  <div class="restaurant-card-content-items"><span class="restaurant-card-title">Pizza</span><span
-                      class="restaurant-card-desc">This 'Za be gettin down</span></div>
+                  <div class="restaurant-card-content-items"><span class="restaurant-card-title">TIME</span><span
+                      class="restaurant-card-desc">时间和时间戳转换</span></div>
                 </div>
               </div>
-              <div class="restaurant-card background-image"
-                style="background-image: url(&quot;https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YmFyYmVxdWV8ZW58MHx8MHx8&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60&quot;);">
+              <div class="restaurant-card background-image" :style="{ 'background-image': `url(${home4})` }">
                 <div class="restaurant-card-content">
-                  <div class="restaurant-card-content-items"><span class="restaurant-card-title">BBQ</span><span
-                      class="restaurant-card-desc">BBQ ain't need no rhyme</span></div>
+                  <div class="restaurant-card-content-items"><span class="restaurant-card-title">UNIT</span><span
+                      class="restaurant-card-desc">长度、面积、气压等单位转换</span></div>
                 </div>
               </div>
             </div>
@@ -114,58 +114,51 @@
                 class="menu-section-title-text">What's Apps?</span></div>
             <div class="menu-section-content">
               <div class="tool-card">
-                <div class="tool-card-background background-image"
-                  style="background-image: url(&quot;https://images.unsplash.com/photo-1492011221367-f47e3ccd77a0?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHdlYXRoZXJ8ZW58MHx8MHx8&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60&quot;);">
+                <div class="tool-card-background background-image" :style="{ 'background-image': `url(${home3})` }">
                 </div>
                 <div class="tool-card-content">
-                  <div class="tool-card-content-header"><span class="tool-card-label">Weather</span><span
-                      class="tool-card-name">Cloudly</span></div><i class="fa-solid fa-cloud-sun tool-card-icon"></i>
+                  <div class="tool-card-content-header"><span class="tool-card-label">Translation</span><span
+                      class="tool-card-name">翻译</span></div><i class="i-uil-slack-alt text-sky-500"></i>
                 </div>
               </div>
               <div class="tool-card">
-                <div class="tool-card-background background-image"
-                  style="background-image: url(&quot;https://images.unsplash.com/photo-1587145820266-a5951ee6f620?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2FsY3VsYXRvcnxlbnwwfHwwfHw%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60&quot;);">
+                <div class="tool-card-background background-image" :style="{ 'background-image': `url(${home10})` }">
                 </div>
                 <div class="tool-card-content">
-                  <div class="tool-card-content-header"><span class="tool-card-label">Calc</span><span
-                      class="tool-card-name">Mathio</span></div><i
-                    class="fa-solid fa-calculator-simple tool-card-icon"></i>
+                  <div class="tool-card-content-header"><span class="tool-card-label">Note</span><span
+                      class="tool-card-name">笔记</span></div><i class="i-uil-notes text-red-400"></i>
                 </div>
               </div>
               <div class="tool-card">
-                <div class="tool-card-background background-image"
-                  style="background-image: url(&quot;https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YmFua3xlbnwwfHwwfHw%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60&quot;);">
+                <div class="tool-card-background background-image" :style="{ 'background-image': `url(${home9})` }">
                 </div>
                 <div class="tool-card-content">
-                  <div class="tool-card-content-header"><span class="tool-card-label">Bank</span><span
-                      class="tool-card-name">Cashy</span></div><i class="fa-solid fa-piggy-bank tool-card-icon"></i>
+                  <div class="tool-card-content-header"><span class="tool-card-label">Keyboard</span><span
+                      class="tool-card-name">键码</span></div><i class="i-uil-keyboard text-green-300"></i>
                 </div>
               </div>
               <div class="tool-card">
-                <div class="tool-card-background background-image"
-                  style="background-image: url(&quot;https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YWlycGxhbmV8ZW58MHx8MHx8&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60&quot;);">
+                <div class="tool-card-background background-image" :style="{ 'background-image': `url(${home1})` }">
                 </div>
                 <div class="tool-card-content">
-                  <div class="tool-card-content-header"><span class="tool-card-label">Travel</span><span
-                      class="tool-card-name">Fly-er-io-ly</span></div><i class="fa-solid fa-plane tool-card-icon"></i>
+                  <div class="tool-card-content-header"><span class="tool-card-label">M3u8</span><span
+                      class="tool-card-name">直播</span></div><i class="i-uil-film text-indigo-300"></i>
                 </div>
               </div>
               <div class="tool-card">
-                <div class="tool-card-background background-image"
-                  style="background-image: url(&quot;https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dmlkZW8lMjBnYW1lc3xlbnwwfHwwfHw%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60&quot;);">
+                <div class="tool-card-background background-image" :style="{ 'background-image': `url(${home14})` }">
                 </div>
                 <div class="tool-card-content">
-                  <div class="tool-card-content-header"><span class="tool-card-label">Games</span><span
-                      class="tool-card-name">Gamey</span></div><i class="fa-solid fa-gamepad-modern tool-card-icon"></i>
+                  <div class="tool-card-content-header"><span class="tool-card-label">Qrcode</span><span
+                      class="tool-card-name">二维码</span></div><i class="i-uil-qrcode-scan text-pink-300"></i>
                 </div>
               </div>
               <div class="tool-card">
-                <div class="tool-card-background background-image"
-                  style="background-image: url(&quot;https://images.unsplash.com/photo-1578022761797-b8636ac1773c?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHZpZGVvJTIwY2hhdHxlbnwwfHwwfHw%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60&quot;);">
+                <div class="tool-card-background background-image" :style="{ 'background-image': `url(${home8})` }">
                 </div>
                 <div class="tool-card-content">
-                  <div class="tool-card-content-header"><span class="tool-card-label">Video Chat</span><span
-                      class="tool-card-name">Chatty</span></div><i class="fa-solid fa-video tool-card-icon"></i>
+                  <div class="tool-card-content-header"><span class="tool-card-label">Terminal</span><span
+                      class="tool-card-name">终端</span></div><i class="i-uil-brackets-curly text-amber-200"></i>
                 </div>
               </div>
             </div>
@@ -174,44 +167,37 @@
             <div class="menu-section-title" id="links_id"><i class="i-uil-link"></i><span
                 class="menu-section-title-text">Link it!</span></div>
             <div class="scrollable-component menu-section-content">
-              <div id="movie-card-1" class="movie-card">
-                <div class="movie-card-background background-image"
-                  style="background-image: url(&quot;https://images.unsplash.com/photo-1596727147705-61a532a659bd?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFydmVsfGVufDB8fDB8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60&quot;);">
+              <div id="movie-card-1" class="movie-card" @click="gotoUrl('https://wt-front-end.github.io/wt-docs/')">
+                <div class="movie-card-background background-image" :style="{ 'background-image': `url(${home12})` }">
                 </div>
                 <div class="movie-card-content">
-                  <div class="movie-card-info"><span class="movie-card-title">Protectors of the Milky Way</span><span
-                      class="movie-card-desc">A tale of some people watching over a large portion of space.</span></div>
-                  <i class="fa-solid fa-galaxy"></i>
+                  <div class="movie-card-info"><span class="movie-card-title">前端文档</span><span
+                      class="movie-card-desc">包含代码编写说明,相关使用方法</span></div>
+                  <i class="i-uil-notebooks text-blue-200"></i>
                 </div>
               </div>
-              <div id="movie-card-2" class="movie-card">
-                <div class="movie-card-background background-image"
-                  style="background-image: url(&quot;https://images.unsplash.com/photo-1535666669445-e8c15cd2e7d9?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bG9yZCUyMG9mJTIwdGhlJTIwcmluZ3N8ZW58MHx8MHx8&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60&quot;);">
+              <div id="movie-card-2" class="movie-card" @click="gotoUrl('https://www.jixiaokang.com/black-tool/')">
+                <div class="movie-card-background background-image" :style="{ 'background-image': `url(${home6})` }">
                 </div>
                 <div class="movie-card-content">
-                  <div class="movie-card-info"><span class="movie-card-title">Hole People</span><span
-                      class="movie-card-desc">Some people leave their holes to disrupt some things.</span></div><i
-                    class="fa-solid fa-hat-wizard"></i>
+                  <div class="movie-card-info"><span class="movie-card-title">生成表格</span><span
+                      class="movie-card-desc">快速生成表格</span></div><i class="i-uil-table text-purple-200"></i>
                 </div>
               </div>
-              <div id="movie-card-3" class="movie-card">
-                <div class="movie-card-background background-image"
-                  style="background-image: url(&quot;https://images.unsplash.com/photo-1632266484284-a11d9e3a460a?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGhhcnJ5JTIwcG90dGVyfGVufDB8fDB8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60&quot;);">
+              <div id="movie-card-3" class="movie-card" @click="handleProject">
+                <div class="movie-card-background background-image" :style="{ 'background-image': `url(${home15})` }">
                 </div>
                 <div class="movie-card-content">
-                  <div class="movie-card-info"><span class="movie-card-title">Pot of Hair</span><span
-                      class="movie-card-desc">A boy with a dent in his head tries to stop a bad guy. And by bad I mean
-                      bad at winning.</span></div><i class="fa-solid fa-broom-ball"></i>
+                  <div class="movie-card-info"><span class="movie-card-title">项目看板</span><span
+                      class="movie-card-desc">接入项目发布信息</span></div><i class="i-uil-comparison text-yellow-200"></i>
                 </div>
               </div>
-              <div id="movie-card-4" class="movie-card">
-                <div class="movie-card-background background-image"
-                  style="background-image: url(&quot;https://images.unsplash.com/photo-1533613220915-609f661a6fe1?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c3RhciUyMHdhcnN8ZW58MHx8MHx8&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60&quot;);">
+              <div id="movie-card-4" class="movie-card"  @click="gotoUrl('https://github.com/wt-front-end/wt-cli')">
+                <div class="movie-card-background background-image" :style="{ 'background-image': `url(${home5})` }">
                 </div>
                 <div class="movie-card-content">
-                  <div class="movie-card-info"><span class="movie-card-title">Area Fights</span><span
-                      class="movie-card-desc">A long drawn out story of some people fighting over some space. Cuz there
-                      isn't enough of it.</span></div><i class="fa-solid fa-starship-freighter"></i>
+                  <div class="movie-card-info"><span class="movie-card-title">项目地址</span><span
+                      class="movie-card-desc">此项目GitHub地址</span></div><i class="i-uil-github-alt text-green-200"></i>
                 </div>
               </div>
             </div>
@@ -223,13 +209,27 @@
 </template>
 
 <script setup>
+import home1 from '../assets/1.webp'
+import home3 from '../assets/3.webp'
+import home4 from '../assets/4.webp'
+import home5 from '../assets/5.webp'
+import home6 from '../assets/6.webp'
+import home7 from '../assets/7.webp'
+import home8 from '../assets/8.webp'
+import home9 from '../assets/9.webp'
+import home10 from '../assets/10.webp'
+import home11 from '../assets/11.webp'
+import home12 from '../assets/12.webp'
+import home13 from '../assets/13.webp'
+import home14 from '../assets/14.webp'
+import home15 from '../assets/15.webp'
 // const { proxy } = getCurrentInstance();
 // const props = defineProps({})
 const router = useRouter();
 function gotoHome () {
   router.push({ name: "Login" })
 }
-function handleExit(){
+function handleExit () {
   router.push({ name: "Index" })
 }
 function handleProject () {
@@ -238,10 +238,31 @@ function handleProject () {
   });
   window.open(routeData.href, '_blank');
 }
-function goAnchor(id){
+function goAnchor (id) {
   let anchor = document.getElementById(id);
-      anchor.scrollIntoView();
+  anchor.scrollIntoView();
 }
+function gotoUrl (url) {
+  window.open(url, '_blank');
+}
+function getTime () {
+  let currentDate = new Date();
+  let hours = currentDate.getHours();
+  let minutes = currentDate.getMinutes();
+
+  // 为了确保两位数，使用padStart()方法将数字转换为字符串，并在左边填充0
+  hours = hours.toString().padStart(2, '0');
+  minutes = minutes.toString().padStart(2, '0');
+  return hours + ':' + minutes;
+}
+let time = ref('')
+let timer = setInterval(() => {
+  time.value = getTime()
+})
+onBeforeUnmount(() => {
+  clearInterval(timer)
+  timer = null;
+})
 // onMounted(() => {});
 </script>
 

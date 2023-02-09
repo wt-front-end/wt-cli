@@ -43,7 +43,7 @@
   </div>
 
 
-  <div class="h-screen  shadow-lg w-40 fixed top-0 left-0 invisible xm:visible md:visible">
+  <div class="h-screen  shadow-lg w-40 fixed top-0 left-0">
     <div class="bg-white h-full dark:bg-gray-700 overflow-y-auto">
       <div class="flex items-center justify-center pt-2">
         <svg width="35" height="30" viewBox="0 0 256 366" version="1.1" preserveAspectRatio="xMidYMid">

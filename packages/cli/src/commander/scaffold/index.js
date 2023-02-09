@@ -30,8 +30,7 @@ const openServer = require('./open');
 const appServer = require('./app');
 // npm
 const npmServer = require('./npm');
-// play
-const playServer = require('./play');
+
 
 // 定义init命令
 exports.init = function (program) {
@@ -160,6 +159,7 @@ exports.open = function (program) {
 exports.app = function (program) {
   program
     .command('app')
+    .alias('apps')
     .description(locals.APP_DESC)
     .action(() => appServer());
 }
@@ -170,12 +170,4 @@ exports.npm = function (program) {
     .command('npm [ls]')
     .description(locals.NPM_DESC)
     .action((ls) => npmServer(ls));
-}
-
-// 定义play命令
-exports.play = function (program) {
-  program
-    .command('play [game]')
-    .description(locals.GAME_DESC)
-    .action((game) => playServer(game));
 }

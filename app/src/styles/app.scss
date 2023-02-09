@@ -604,7 +604,9 @@ $backgroundImage: "../assets/2.webp";
 
         &:hover {
           transform: translateY(-5px);
-
+          .tool-card-content {
+            backdrop-filter: blur(0px);
+          }
           .tool-card-background {
             filter: grayscale(25%);
           }
@@ -628,6 +630,7 @@ $backgroundImage: "../assets/2.webp";
           display: flex;
           flex-direction: column;
           height: calc(100% - 40px);
+          backdrop-filter: blur(3px);
           justify-content: space-between;
           padding: 20px;
           position: relative;
@@ -758,8 +761,8 @@ $backgroundImage: "../assets/2.webp";
 
           i {
             bottom: 0px;
-            color: gray(245);
-            font-size: 5em;
+            // color: gray(245);
+            // font-size: 5em;
             padding: 30px;
             position: absolute;
             right: 0px;

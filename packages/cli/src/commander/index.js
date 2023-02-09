@@ -4,7 +4,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-18 17:33:21
+ * @LastEditTime: 2023-02-09 11:13:43
  */
 'use strict';
 const clear = require('clear');
@@ -110,7 +110,6 @@ checkUpdate().then(async () => {
   open(program);
   app(program);
   npm(program);
-  // play(program);
 
 
   program.parse(process.argv);
