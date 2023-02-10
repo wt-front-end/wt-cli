@@ -1,6 +1,6 @@
 <!--
  * @Date: 2023-02-03
- * @LastEditTime: 2023-02-09 13:34:35
+ * @LastEditTime: 2023-02-10 12:40:32
  * @LastEditors: xkloveme
  * @FileDesc:主页
  * @FilePath: /watone-cli/app/src/views/home.vue
@@ -36,7 +36,7 @@
                 class="quick-nav-item-label">应用</span></div>
             <div class="quick-nav-item clear-button" @click="goAnchor('links_id')"><span
                 class="quick-nav-item-label">链接</span></div>
-          </div><a id="youtube-link" class="clear-button" @click="handleProject" target="_blank"><span>项目概览</span></a>
+          </div><a id="youtube-link" class="clear-button" @click="handleRouter('Project')" target="_blank"><span>项目概览</span></a>
           <div id="weather-section" class="menu-section">
             <div class="rainbow-container" id="weather_id"><i class="rainbow"></i></div>
             <div class="menu-section-title"><span class="menu-section-title-text">最近的天气如何?</span></div>
@@ -137,12 +137,12 @@
                       class="tool-card-name">键码</span></div><i class="i-uil-keyboard text-green-300"></i>
                 </div>
               </div>
-              <div class="tool-card">
+              <div class="tool-card" @click="handleRouter('Chatgpt')">
                 <div class="tool-card-background background-image" :style="{ 'background-image': `url(${home1})` }">
                 </div>
                 <div class="tool-card-content">
-                  <div class="tool-card-content-header"><span class="tool-card-label">M3u8</span><span
-                      class="tool-card-name">直播</span></div><i class="i-uil-film text-indigo-300"></i>
+                  <div class="tool-card-content-header"><span class="tool-card-label">ChatGPT</span><span
+                      class="tool-card-name">AI 人工智能</span></div><i class="i-uil-robot text-indigo-300"></i>
                 </div>
               </div>
               <div class="tool-card">
@@ -232,9 +232,9 @@ function gotoHome () {
 function handleExit () {
   router.push({ name: "Index" })
 }
-function handleProject () {
+function handleRouter (name) {
   const routeData = router.resolve({
-    name: "Project"
+    name: name
   });
   window.open(routeData.href, '_blank');
 }

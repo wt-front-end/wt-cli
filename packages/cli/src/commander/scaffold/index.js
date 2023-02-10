@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-30 11:21:05
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-18 10:56:53
+ * @LastEditTime: 2023-02-10 12:42:13
  */
 'use strict';
 // 提示文件
@@ -158,10 +158,10 @@ exports.open = function (program) {
 // 定义app命令
 exports.app = function (program) {
   program
-    .command('app')
+    .command('app [Application]')
     .alias('apps')
     .description(locals.APP_DESC)
-    .action(() => appServer());
+    .action((Application) => appServer(Application));
 }
 
 // 定义npm命令

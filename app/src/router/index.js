@@ -29,6 +29,12 @@ export const constantRoutes = [
     component: () => import("@/views/project.vue"),
     name: "Project",
     meta: { title: "项目发布情况" }
+  },
+  {
+    path: "/chatgpt",
+    component: () => import("@/views/chatgpt.vue"),
+    name: "Chatgpt",
+    meta: { title: "OPEN AI 人工智能" }
   }
 ];
 

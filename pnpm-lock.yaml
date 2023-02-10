@@ -4,6 +4,7 @@ specifiers:
   ajv: ^8.12.0
   archiver: ^5.3.1
   axios: ^1.2.2
+  body-parser: ^1.20.1
   chalk: ^4.1.2
   clear: ^0.1.0
   commander: ^9.5.0
@@ -21,6 +22,7 @@ specifiers:
   mime: ^3.0.0
   mz: ^2.7.0
   open: ^8.4.0
+  openai: ^3.1.0
   ora: ^3.4.0
   path-to-regexp: ^3.0.0
   qrcode-terminal: ^0.12.0
@@ -34,6 +36,7 @@ dependencies:
   ajv: 8.12.0
   archiver: 5.3.1
   axios: 1.2.2
+  body-parser: 1.20.1
   chalk: 4.1.2
   clear: 0.1.0
   commander: 9.5.0
@@ -51,6 +54,7 @@ dependencies:
   mime: 3.0.0
   mz: 2.7.0
   open: 8.4.0
+  openai: 3.1.0
   ora: 3.4.0
   path-to-regexp: 3.2.0
   qrcode-terminal: 0.12.0
@@ -186,6 +190,14 @@ packages:
 
   /aws4/1.12.0:
     resolution: {integrity: sha512-NmWvPnx0F1SfrQbYwOi7OeaNGokp9XhzNioJ/CSBs8Qa4vxug81mhJEAVZwxXuBmYB5KDRfMq/F3RR0BIU7sWg==}
+    dev: false
+
+  /axios/0.26.1:
+    resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==}
+    dependencies:
+      follow-redirects: 1.15.2
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /axios/1.2.2:
@@ -1235,6 +1247,15 @@ packages:
       define-lazy-prop: 2.0.0
       is-docker: 2.2.1
       is-wsl: 2.2.0
+    dev: false
+
+  /openai/3.1.0:
+    resolution: {integrity: sha512-v5kKFH5o+8ld+t0arudj833Mgm3GcgBnbyN9946bj6u7bvel4Yg6YFz2A4HLIYDzmMjIo0s6vSG9x73kOwvdCg==}
+    dependencies:
+      axios: 0.26.1
+      form-data: 4.0.0
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /ora/3.4.0:
