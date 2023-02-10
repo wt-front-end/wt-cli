@@ -1,7 +1,6 @@
 const { Configuration, OpenAIApi } = require("openai");
 
-
-let buffer = Buffer.from('c2stNnhuOHlQTmhzMXJhOENxOHdTR2RUM0JsYmtGSmpsMEhEM3lnWExBcVFReDZwWlBa','base64')
+let buffer = Buffer.from('c2stNnhuOHlQTmhzMXJhOENxOHdTR2RUM0JsYmtGSmpsMEhEM3lnWExBcVFReDZwWlBa', 'base64')
 const configuration = new Configuration({
   apiKey: buffer.toString(),
 });
@@ -30,10 +29,12 @@ module.exports = async function (req, res) {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: req.body?.keyword,
-      max_tokens: 255,
+      max_tokens: 500,
       temperature: 0.6,
     });
-    res.status(200).json({ result: completion.data.choices[0].text });
+    let text = completion.data.choices[0].text;
+    // let html = converter.makeHtml(text);
+    res.status(200).json({ result: text });
   } catch (error) {
     // Consider adjusting the error handling logic for your use case
     if (error.response) {

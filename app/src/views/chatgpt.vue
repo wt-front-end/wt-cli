@@ -1,6 +1,6 @@
 <!--
  * @Date: 2023-02-10
- * @LastEditTime: 2023-02-10 12:27:35
+ * @LastEditTime: 2023-02-10 16:52:12
  * @LastEditors: xkloveme
  * @FileDesc:new page
  * @FilePath: /watone-cli/app/src/views/chatgpt.vue
@@ -15,7 +15,7 @@
       </div>
       <div class="chat" :class="item.who == 'me' ? 'card_two' : 'card'" v-for="(item,i) in list" :key="i+1">
         <div :class="item.who == 'me' ? 'triangle_two' : 'triangle'"></div>
-        <div class="card2">{{ item.keyword }}</div>
+        <div class="card2" v-html="item.keyword"></div>
       </div>
     </div>
     <form @submit="onSubmit" class="input-btn">
@@ -60,6 +60,7 @@ let loading = ref(false)
 let list = ref([])
 async function onSubmit (e) {
   e.preventDefault();
+  if(!input.value) return
   loading.value = true
   list.value.push({ keyword: input.value, who: 'me' })
   try {

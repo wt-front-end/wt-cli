@@ -30,6 +30,7 @@ specifiers:
   request-promise: ^4.2.6
   semver: ^7.3.8
   shelljs: ^0.8.5
+  showdown: ^2.1.0
   util: ^0.12.5
 
 dependencies:
@@ -62,6 +63,7 @@ dependencies:
   request-promise: 4.2.6_request@2.88.2
   semver: 7.3.8
   shelljs: 0.8.5
+  showdown: 2.1.0
   util: 0.12.5
 
 packages:
@@ -1561,6 +1563,13 @@ packages:
       glob: 7.2.3
       interpret: 1.4.0
       rechoir: 0.6.2
+    dev: false
+
+  /showdown/2.1.0:
+    resolution: {integrity: sha512-/6NVYu4U819R2pUIk79n67SYgJHWCce0a5xTP979WbNp0FL9MN1I1QK662IDU1b6JzKTvmhgI7T7JYIxBi3kMQ==}
+    hasBin: true
+    dependencies:
+      commander: 9.5.0
     dev: false
 
   /side-channel/1.0.4:

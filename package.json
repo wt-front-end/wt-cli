@@ -5,6 +5,7 @@
   "bin": {
     "watone": "bin/watone-cli.js",
     "http": "bin/http-cli.js",
+    "ai": "bin/ai-cli.js",
     "t": "bin/t-cli.js",
     "v": "bin/v-cli.js",
     "i": "bin/i-cli.js",

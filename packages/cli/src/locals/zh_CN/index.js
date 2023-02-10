@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:49:22
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-01-18 10:53:27
+ * @LastEditTime: 2023-02-10 16:24:02
  */
 
 module.exports = {
@@ -50,6 +50,7 @@ module.exports = {
   NPM_MESSAGE:'请选择哪个命令要换源',
   NPM_SUCCESS:'您已成功使用 ',
   APP_DESC: '查看项目发布情况',
+  AI_DESC:'人工智能Open AI',
   NETWORK_DISCONNECT: '您已断网！所需服务需要连接到互联网',
   NETWORK_DISCONNECT_SUG: '请确认您的设备处于网络可访问的环境中',
   NETWORK_DISCONNECTWATONE_SUG:'您处于非公司网络中,模版将会从互联网拉取',
