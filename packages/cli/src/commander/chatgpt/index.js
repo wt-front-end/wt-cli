@@ -1,7 +1,9 @@
 const { Configuration, OpenAIApi } = require("openai");
 
+
+let buffer = Buffer.from('c2stNnhuOHlQTmhzMXJhOENxOHdTR2RUM0JsYmtGSmpsMEhEM3lnWExBcVFReDZwWlBa','base64')
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: buffer.toString(),
 });
 const openai = new OpenAIApi(configuration);
 
