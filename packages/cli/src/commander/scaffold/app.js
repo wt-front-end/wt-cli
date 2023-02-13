@@ -1,17 +1,21 @@
 const express = require('express');
 const path = require('path');    // 路径获取
-const request = require('request');
 const chalk = require('chalk');
+const http = require('http');
 var bodyParser = require('body-parser');
 const utils = require('../../lib/utils');
-const chatgpt = require('../chatgpt');
-const AppConfig = require('../../lib/utils/app');
+const createSocketServer = require('../../../socket');
+const indexRouter = require('../../../routes');
 module.exports = function (Application) {
   const app = express();
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: false }));
   app.use(express.static(path.join(__dirname, '../../../../../app/dist')));
-  app.use(bodyParser());
   let port = 9159;
-  const server = app.listen(port, () => {
+  let server = http.createServer(app);
+  server.listen(port, () => {
     let myIP = utils.getIPAdress();
     let myUrl = `http://${myIP}:${port}`
     Application && (myUrl = myUrl + `/#/${Application}`)
@@ -29,47 +33,24 @@ module.exports = function (Application) {
       server.listen(newPort);
     }
   });
-
-  app.get('/', (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'app/dist', 'index.html'));
+  app.use(function (req, res, next) {
+    res.success = function (data) {
+      res.json({
+        code: 200,
+        msg: '操作成功',
+        data: data
+      });
+    };
+    res.fail = function (message) {
+      res.json({
+        code: -1,
+        msg: message
+      });
+    };
+    next();
   });
-
-  // 接口
-  app.get('/api/getJson', function (req, res) {
-    if (!req.query?.url) {
-      return res.status(204).send('url不能为空');
-    }
-    let options = {
-      url: req.query?.url,
-      timeout: 500
-    }
-    request(options, function (error, response, data) {
-      if (!error && response.statusCode == 200) {
-        res.status(200).json(JSON.parse(data));
-      } else {
-        res.status(500).json(error);
-      }
-    });
-  });
-  // 获取app 配置密码校验
-  app.get('/api/pwdCheck', function (req, res) {
-    if (!req.query?.pwd) {
-      return res.status(204);
-    }
-    AppConfig().then(async (json) => {
-      return res.status(200).send(req.query?.pwd == json.pwd);
-    })
-  });
-  // 获取app 配置信息
-  app.get('/api/config', function (req, res) {
-    AppConfig().then(async (json) => {
-      return res.status(200).send(json);
-    })
-  });
-
-
-  // chatgpt 对话 post 方法兼容输入更多内容
-  app.post('/api/chatgpt', chatgpt);
+  createSocketServer(server);
+  app.use('/api', indexRouter);
 
   function findAvailablePort (startPort) {
     let currentPort = startPort;

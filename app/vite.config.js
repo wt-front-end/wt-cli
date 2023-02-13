@@ -26,7 +26,12 @@ export default defineConfig(({ mode, command }) => {
           target: "http://localhost:9159", // 本地node服务
           changeOrigin: true,
           // rewrite: p => p.replace(/^\/api/, "")
-        }
+        },
+        "/socket.io": {
+          target: "http://localhost:9159/socket.io", // 本地node服务
+          ws:true,
+          changeOrigin: true,
+        },
       }
     }
   }

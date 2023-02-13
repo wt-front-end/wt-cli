@@ -61,6 +61,9 @@
     "request-promise": "^4.2.6",
     "semver": "^7.3.8",
     "shelljs": "^0.8.5",
-    "util": "^0.12.5"
+    "util": "^0.12.5",
+    "node-pty": "^0.10.1",
+    "socket.io": "4.6.0",
+    "user-home": "3.0.0"
   }
 }

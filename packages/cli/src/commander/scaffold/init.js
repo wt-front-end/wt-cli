@@ -1,7 +1,7 @@
 /*
  * @Author: xkloveme
  * @Date: 2023-01-10 15:25:07
- * @LastEditTime: 2023-01-17 13:51:46
+ * @LastEditTime: 2023-02-13 10:20:37
  * @LastEditors: xkloveme
  * @Description: 初始化项目
  * @FilePath: /watone-cli/packages/cli/src/commander/scaffold/init.js

@@ -3,8 +3,9 @@ lockfileVersion: 5.4
 specifiers:
   '@iconify-json/uil': ^1.1.3
   '@vitejs/plugin-vue': ^4.0.0
-  highlight.js: ^11.7.0
+  primevue: ^3.23.0
   sass: ^1.58.0
+  socket.io-client: ^4.6.0
   unocss: ^0.48.4
   unplugin-auto-import: ^0.11.4
   unplugin-icons: ^0.14.12
@@ -13,22 +14,29 @@ specifiers:
   vite-plugin-vue-setup-extend: 0.4.0
   vue: ^3.2.45
   vue-router: ^4.1.6
+  xterm: ^3.14.5
+  xterm-addon-web-links: ^0.8.0
+  xterm-theme: ^1.1.0
 
 dependencies:
+  primevue: 3.23.0_vue@3.2.45
   vue: 3.2.45
   vue-router: 4.1.6_vue@3.2.45
 
 devDependencies:
   '@iconify-json/uil': 1.1.3
   '@vitejs/plugin-vue': 4.0.0_vite@4.0.4+vue@3.2.45
-  highlight.js: 11.7.0
   sass: 1.58.0
+  socket.io-client: 4.6.0
   unocss: 0.48.4_vite@4.0.4
   unplugin-auto-import: 0.11.5
   unplugin-icons: 0.14.15
   unplugin-vue-components: 0.22.12_vue@3.2.45
   vite: 4.0.4_sass@1.58.0
   vite-plugin-vue-setup-extend: 0.4.0_vite@4.0.4
+  xterm: 3.14.5
+  xterm-addon-web-links: 0.8.0_xterm@3.14.5
+  xterm-theme: 1.1.0
 
 packages:
 
@@ -365,6 +373,10 @@ packages:
       '@types/estree': 1.0.0
       estree-walker: 2.0.2
       picomatch: 2.3.1
+    dev: true
+
+  /@socket.io/component-emitter/3.1.0:
+    resolution: {integrity: sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==}
     dev: true
 
   /@types/estree/1.0.0:
@@ -735,6 +747,25 @@ packages:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
     dev: true
 
+  /engine.io-client/6.4.0:
+    resolution: {integrity: sha512-GyKPDyoEha+XZ7iEqam49vz6auPnNJ9ZBfy89f+rMMas8AuiMWOZ9PVzu8xb9ZC6rafUqiGHSCfu22ih66E+1g==}
+    dependencies:
+      '@socket.io/component-emitter': 3.1.0
+      debug: 4.3.4
+      engine.io-parser: 5.0.6
+      ws: 8.11.0
+      xmlhttprequest-ssl: 2.0.0
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+    dev: true
+
+  /engine.io-parser/5.0.6:
+    resolution: {integrity: sha512-tjuoZDMAdEhVnSFleYPCtdL2GXwVTGtNjoeJd9IhIG3C1xs9uwxqRNEu5WpnDZCaozwVlK/nuQhpodhXSIMaxw==}
+    engines: {node: '>=10.0.0'}
+    dev: true
+
   /esbuild/0.16.17:
     resolution: {integrity: sha512-G8LEkV0XzDMNwXKgM0Jwu3nY3lSTwSGY6XbxM9cr9+s0T/qSV1q1JVPBGzm3dcjhCic9+emZDmMffkwgPeOeLg==}
     engines: {node: '>=12'}
@@ -856,11 +887,6 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
-    dev: true
-
-  /highlight.js/11.7.0:
-    resolution: {integrity: sha512-1rRqesRFhMO/PRF+G86evnyJkCgaZFOI+Z6kdj15TA18funfoqJXvgPCLSf0SWq3SRfg1j3HlDs8o4s3EGq1oQ==}
-    engines: {node: '>=12.0.0'}
     dev: true
 
   /human-signals/2.1.0:
@@ -1108,6 +1134,15 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
+  /primevue/3.23.0_vue@3.2.45:
+    resolution: {integrity: sha512-WyJwvVRJbuCPAId3qDwQVPXgOli4gc9yxdZZyY/3Ml0/asHHH3LR7+MMvjIHXg/AN+XX5SBVPPJkObxP8cJuaw==}
+    peerDependencies:
+      primeicons: ^5.0.0 || ^6.0.0
+      vue: ^3.0.0
+    dependencies:
+      vue: 3.2.45
+    dev: false
+
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
@@ -1184,6 +1219,30 @@ packages:
       '@polka/url': 1.0.0-next.21
       mrmime: 1.0.1
       totalist: 3.0.0
+    dev: true
+
+  /socket.io-client/4.6.0:
+    resolution: {integrity: sha512-2XOp18xnGghUICSd5ziUIS4rB0dhr6S8OvAps8y+HhOjFQlqGcf+FIh6fCIsKKZyWFxJeFPrZRNPGsHDTsz1Ug==}
+    engines: {node: '>=10.0.0'}
+    dependencies:
+      '@socket.io/component-emitter': 3.1.0
+      debug: 4.3.4
+      engine.io-client: 6.4.0
+      socket.io-parser: 4.2.2
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+    dev: true
+
+  /socket.io-parser/4.2.2:
+    resolution: {integrity: sha512-DJtziuKypFkMMHCm2uIshOYC7QaylbtzQwiMYDuCKy3OPkjLzu4B2vAhTlqipRHHzrI0NJeBAizTK7X+6m1jVw==}
+    engines: {node: '>=10.0.0'}
+    dependencies:
+      '@socket.io/component-emitter': 3.1.0
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /source-map-js/1.0.2:
@@ -1467,6 +1526,40 @@ packages:
     hasBin: true
     dependencies:
       isexe: 2.0.0
+    dev: true
+
+  /ws/8.11.0:
+    resolution: {integrity: sha512-HPG3wQd9sNQoT9xHyNCXoDUa+Xw/VevmY9FoHyQ+g+rrMn4j6FB4np7Z0OhdTgjx6MgQLK7jwSy1YecU1+4Asg==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: ^5.0.2
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+    dev: true
+
+  /xmlhttprequest-ssl/2.0.0:
+    resolution: {integrity: sha512-QKxVRxiRACQcVuQEYFsI1hhkrMlrXHPegbbd1yn9UHOmRxY+si12nQYzri3vbzt8VdTTRviqcKxcyllFas5z2A==}
+    engines: {node: '>=0.4.0'}
+    dev: true
+
+  /xterm-addon-web-links/0.8.0_xterm@3.14.5:
+    resolution: {integrity: sha512-J4tKngmIu20ytX9SEJjAP3UGksah7iALqBtfTwT9ZnmFHVplCumYQsUJfKuS+JwMhjsjH61YXfndenLNvjRrEw==}
+    peerDependencies:
+      xterm: ^5.0.0
+    dependencies:
+      xterm: 3.14.5
+    dev: true
+
+  /xterm-theme/1.1.0:
+    resolution: {integrity: sha512-n2GocBEbqcz4vEl4OYkU93hEVia8GWdnqchiz/0nQ/olRUyhulGf4wfha23x/D2m0imWaIavRZtt8c6kWZXdsA==}
+    dev: true
+
+  /xterm/3.14.5:
+    resolution: {integrity: sha512-DVmQ8jlEtL+WbBKUZuMxHMBgK/yeIZwkXB81bH+MGaKKnJGYwA+770hzhXPfwEIokK9On9YIFPRleVp/5G7z9g==}
     dev: true
 
   /yocto-queue/0.1.0:
