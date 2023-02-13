@@ -43,6 +43,18 @@ export const constantRoutes = [
     meta: { title: "笔记" }
   },
   {
+    path: "/html",
+    component: () => import("@/views/html.vue"),
+    name: "Html",
+    meta: { title: "在线html" }
+  },
+  {
+    path: "/json",
+    component: () => import("@/views/json.vue"),
+    name: "Json",
+    meta: { title: "在线json" }
+  },
+  {
     path: "/shell",
     component: () => import("@/views/shell.vue"),
     name: "Shell",

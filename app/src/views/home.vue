@@ -1,6 +1,6 @@
 <!--
  * @Date: 2023-02-03
- * @LastEditTime: 2023-02-10 12:40:32
+ * @LastEditTime: 2023-02-13 18:16:36
  * @LastEditors: xkloveme
  * @FileDesc:主页
  * @FilePath: /watone-cli/app/src/views/home.vue
@@ -83,13 +83,13 @@
             <div class="menu-section-title" id="tools_id"><i class="i-uil-briefcase-alt"></i><span
                 class="menu-section-title-text">Get it tools!</span></div>
             <div class="menu-section-content">
-              <div class="restaurant-card background-image" :style="{ 'background-image': `url(${home13})` }">
+              <div class="restaurant-card background-image" @click="handleRouter('Json')" :style="{ 'background-image': `url(${home13})` }">
                 <div class="restaurant-card-content">
                   <div class="restaurant-card-content-items"><span class="restaurant-card-title">JSON</span><span
                       class="restaurant-card-desc">最好的JSON 格式化工具</span></div>
                 </div>
               </div>
-              <div class="restaurant-card background-image" :style="{ 'background-image': `url(${home7})` }">
+              <div class="restaurant-card background-image" @click="handleRouter('Html')"  :style="{ 'background-image': `url(${home7})` }">
                 <div class="restaurant-card-content">
                   <div class="restaurant-card-content-items"><span class="restaurant-card-title">HTML</span><span
                       class="restaurant-card-desc">在线编写HTML</span></div>
@@ -153,7 +153,7 @@
                       class="tool-card-name">二维码</span></div><i class="i-uil-qrcode-scan text-pink-300"></i>
                 </div>
               </div>
-              <div class="tool-card">
+              <div class="tool-card" @click="handleRouter('Shell')">
                 <div class="tool-card-background background-image" :style="{ 'background-image': `url(${home8})` }">
                 </div>
                 <div class="tool-card-content">
