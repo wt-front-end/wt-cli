@@ -52,6 +52,7 @@
     "log-symbols": "^3.0.0",
     "mime": "^3.0.0",
     "mz": "^2.7.0",
+    "node-pty": "0.11.0-beta29",
     "open": "^8.4.0",
     "openai": "^3.1.0",
     "ora": "^3.4.0",
@@ -61,8 +62,8 @@
     "request-promise": "^4.2.6",
     "semver": "^7.3.8",
     "shelljs": "^0.8.5",
-    "util": "^0.12.5",
     "socket.io": "4.6.0",
-    "user-home": "3.0.0"
+    "user-home": "3.0.0",
+    "util": "^0.12.5"
   }
 }

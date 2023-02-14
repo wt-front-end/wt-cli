@@ -21,6 +21,7 @@ specifiers:
   log-symbols: ^3.0.0
   mime: ^3.0.0
   mz: ^2.7.0
+  node-pty: 0.11.0-beta29
   open: ^8.4.0
   openai: ^3.1.0
   ora: ^3.4.0
@@ -55,6 +56,7 @@ dependencies:
   log-symbols: 3.0.0
   mime: 3.0.0
   mz: 2.7.0
+  node-pty: 0.11.0-beta29
   open: 8.4.0
   openai: 3.1.0
   ora: 3.4.0
@@ -1271,9 +1273,20 @@ packages:
       thenify-all: 1.6.0
     dev: false
 
+  /nan/2.17.0:
+    resolution: {integrity: sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ==}
+    dev: false
+
   /negotiator/0.6.3:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
     engines: {node: '>= 0.6'}
+    dev: false
+
+  /node-pty/0.11.0-beta29:
+    resolution: {integrity: sha512-pkSldLXjjwFrGd3EJWI0Pu1jnxeQaW0P9i2EQtO2RaK/pZ22pf99lQ8OfptYTPK2oKZbkjwzqh05uJJ2krH9iA==}
+    requiresBuild: true
+    dependencies:
+      nan: 2.17.0
     dev: false
 
   /normalize-path/3.0.0:
