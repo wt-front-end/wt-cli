@@ -1,4 +1,4 @@
-const pty = require('node-pty');
+// const pty = require('node-pty');
 const os = require('os');
 const userhome = require('user-home');
 var shelljs = require('shelljs')
@@ -7,6 +7,7 @@ if (shelljs.which('zsh')) {
   shell = 'zsh';
 }
 let ptyContainers = {};
+let pty ={}
 module.exports = socket => {
   socket.on('create', option => {
     let ptyProcess = pty.spawn(shell, ['--login'], {
