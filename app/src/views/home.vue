@@ -1,6 +1,6 @@
 <!--
  * @Date: 2023-02-03
- * @LastEditTime: 2023-02-13 18:16:36
+ * @LastEditTime: 2023-02-15 17:32:15
  * @LastEditors: xkloveme
  * @FileDesc:主页
  * @FilePath: /watone-cli/app/src/views/home.vue
@@ -83,25 +83,25 @@
             <div class="menu-section-title" id="tools_id"><i class="i-uil-briefcase-alt"></i><span
                 class="menu-section-title-text">Get it tools!</span></div>
             <div class="menu-section-content">
-              <div class="restaurant-card background-image" @click="handleRouter('Json')" :style="{ 'background-image': `url(${home13})` }">
+              <div class="restaurant-card background-image" @click="handleRouter('Json')" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhBrJam-help9UezO/root/content)` }">
                 <div class="restaurant-card-content">
                   <div class="restaurant-card-content-items"><span class="restaurant-card-title">JSON</span><span
                       class="restaurant-card-desc">最好的JSON 格式化工具</span></div>
                 </div>
               </div>
-              <div class="restaurant-card background-image" @click="handleRouter('Html')"  :style="{ 'background-image': `url(${home7})` }">
+              <div class="restaurant-card background-image" @click="handleRouter('Html')"  :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhBs-vum1YCsYKacN/root/content)` }">
                 <div class="restaurant-card-content">
                   <div class="restaurant-card-content-items"><span class="restaurant-card-title">HTML</span><span
                       class="restaurant-card-desc">在线编写HTML</span></div>
                 </div>
               </div>
-              <div class="restaurant-card background-image" :style="{ 'background-image': `url(${home11})` }">
+              <div class="restaurant-card background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhByphWP_Xfn9L3um/root/content)` }">
                 <div class="restaurant-card-content">
                   <div class="restaurant-card-content-items"><span class="restaurant-card-title">TIME</span><span
                       class="restaurant-card-desc">时间和时间戳转换</span></div>
                 </div>
               </div>
-              <div class="restaurant-card background-image" :style="{ 'background-image': `url(${home4})` }">
+              <div class="restaurant-card background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhB3f8xOSgYGOKgo2/root/content)` }">
                 <div class="restaurant-card-content">
                   <div class="restaurant-card-content-items"><span class="restaurant-card-title">UNIT</span><span
                       class="restaurant-card-desc">长度、面积、气压等单位转换</span></div>
@@ -114,7 +114,7 @@
                 class="menu-section-title-text">What's Apps?</span></div>
             <div class="menu-section-content">
               <div class="tool-card">
-                <div class="tool-card-background background-image" :style="{ 'background-image': `url(${home3})` }">
+                <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCa39MbOkUCXstCi/root/content)` }">
                 </div>
                 <div class="tool-card-content">
                   <div class="tool-card-content-header"><span class="tool-card-label">Translation</span><span
@@ -122,7 +122,7 @@
                 </div>
               </div>
               <div class="tool-card">
-                <div class="tool-card-background background-image" :style="{ 'background-image': `url(${home10})` }">
+                <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCcDs4UvuOvnjZyN/root/content)` }">
                 </div>
                 <div class="tool-card-content">
                   <div class="tool-card-content-header"><span class="tool-card-label">Note</span><span
@@ -130,7 +130,7 @@
                 </div>
               </div>
               <div class="tool-card">
-                <div class="tool-card-background background-image" :style="{ 'background-image': `url(${home9})` }">
+                <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhChCpZe2N8lBhq5J/root/content)` }">
                 </div>
                 <div class="tool-card-content">
                   <div class="tool-card-content-header"><span class="tool-card-label">Keyboard</span><span
@@ -138,7 +138,7 @@
                 </div>
               </div>
               <div class="tool-card" @click="handleRouter('Chatgpt')">
-                <div class="tool-card-background background-image" :style="{ 'background-image': `url(${home1})` }">
+                <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCn-AXQgChjEAiWy/root/content)` }">
                 </div>
                 <div class="tool-card-content">
                   <div class="tool-card-content-header"><span class="tool-card-label">ChatGPT</span><span
@@ -146,7 +146,7 @@
                 </div>
               </div>
               <div class="tool-card">
-                <div class="tool-card-background background-image" :style="{ 'background-image': `url(${home14})` }">
+                <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCrkDSSirrrja4fb/root/content)` }">
                 </div>
                 <div class="tool-card-content">
                   <div class="tool-card-content-header"><span class="tool-card-label">Qrcode</span><span
@@ -154,7 +154,7 @@
                 </div>
               </div>
               <div class="tool-card" @click="handleRouter('Shell')">
-                <div class="tool-card-background background-image" :style="{ 'background-image': `url(${home8})` }">
+                <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCt4b2Mv8Dvl4Chp/root/content)` }">
                 </div>
                 <div class="tool-card-content">
                   <div class="tool-card-content-header"><span class="tool-card-label">Terminal</span><span
@@ -168,7 +168,7 @@
                 class="menu-section-title-text">Link it!</span></div>
             <div class="scrollable-component menu-section-content">
               <div id="movie-card-1" class="movie-card" @click="gotoUrl('https://wt-front-end.github.io/wt-docs/')">
-                <div class="movie-card-background background-image" :style="{ 'background-image': `url(${home12})` }">
+                <div class="movie-card-background background-image" :style="{ 'background-image': `url(https://www.helloimg.com/images/2023/02/15/oFxVdA.webp)` }">
                 </div>
                 <div class="movie-card-content">
                   <div class="movie-card-info"><span class="movie-card-title">前端文档</span><span
@@ -177,7 +177,7 @@
                 </div>
               </div>
               <div id="movie-card-2" class="movie-card" @click="gotoUrl('https://www.jixiaokang.com/black-tool/')">
-                <div class="movie-card-background background-image" :style="{ 'background-image': `url(${home6})` }">
+                <div class="movie-card-background background-image" :style="{ 'background-image': `url(https://www.helloimg.com/images/2023/02/15/oFx7XX.webp)` }">
                 </div>
                 <div class="movie-card-content">
                   <div class="movie-card-info"><span class="movie-card-title">生成表格</span><span
@@ -185,7 +185,7 @@
                 </div>
               </div>
               <div id="movie-card-3" class="movie-card" @click="handleProject">
-                <div class="movie-card-background background-image" :style="{ 'background-image': `url(${home15})` }">
+                <div class="movie-card-background background-image" :style="{ 'background-image': `url(https://www.helloimg.com/images/2023/02/15/oFxI8M.webp)` }">
                 </div>
                 <div class="movie-card-content">
                   <div class="movie-card-info"><span class="movie-card-title">项目看板</span><span
@@ -193,7 +193,7 @@
                 </div>
               </div>
               <div id="movie-card-4" class="movie-card"  @click="gotoUrl('https://github.com/wt-front-end/wt-cli')">
-                <div class="movie-card-background background-image" :style="{ 'background-image': `url(${home5})` }">
+                <div class="movie-card-background background-image" :style="{ 'background-image': `url(https://www.helloimg.com/images/2023/02/15/oFxQcY.webp)` }">
                 </div>
                 <div class="movie-card-content">
                   <div class="movie-card-info"><span class="movie-card-title">项目地址</span><span
@@ -209,22 +209,6 @@
 </template>
 
 <script setup>
-import home1 from '../assets/1.webp'
-import home3 from '../assets/3.webp'
-import home4 from '../assets/4.webp'
-import home5 from '../assets/5.webp'
-import home6 from '../assets/6.webp'
-import home7 from '../assets/7.webp'
-import home8 from '../assets/8.webp'
-import home9 from '../assets/9.webp'
-import home10 from '../assets/10.webp'
-import home11 from '../assets/11.webp'
-import home12 from '../assets/12.webp'
-import home13 from '../assets/13.webp'
-import home14 from '../assets/14.webp'
-import home15 from '../assets/15.webp'
-// const { proxy } = getCurrentInstance();
-// const props = defineProps({})
 const router = useRouter();
 function gotoHome () {
   router.push({ name: "Login" })

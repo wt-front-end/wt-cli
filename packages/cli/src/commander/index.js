@@ -4,7 +4,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: xkloveme
- * @LastEditTime: 2023-02-15 11:29:10
+ * @LastEditTime: 2023-02-15 14:34:47
  */
 'use strict';
 const clear = require('clear');
@@ -71,7 +71,7 @@ checkUpdate().then(async () => {
     log.info('获取版本信息  $ watone -v');
     log.info('搜索内容  $ watone s 杭州到北京多远');
     log.info('当前天气  $ watone a');
-    log.info('启动http服务  $ watone w 或者 $ w');
+    log.info('启动http服务  $ watone http 或者 $ http');
     log.info('生成二维码  $ watone qrcode 我的二维码 或者 $ watone q 我的二维码');
   });
 
