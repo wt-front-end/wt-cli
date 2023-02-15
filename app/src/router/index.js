@@ -59,6 +59,12 @@ export const constantRoutes = [
     component: () => import("@/views/shell.vue"),
     name: "Shell",
     meta: { title: "终端" }
+  },
+  {
+    path: "/translate",
+    component: () => import("@/views/translate.vue"),
+    name: "Translate",
+    meta: { title: "翻译" }
   }
 ];
 

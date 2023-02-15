@@ -15,4 +15,6 @@ router.post('/chatgpt', chatgpt);
 router.get('/notes/tree', notes.getTree);
 // terminal
 router.get('/cmd', terminal.cmd);
+// translate
+router.get('/translate', terminal.translate);
 module.exports = router;
