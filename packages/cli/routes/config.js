@@ -1,6 +1,6 @@
 const request = require('request');
 const AppConfig = require('../src/lib/utils/app');
-
+const exec = require('mz/child_process').exec;
 exports.getJson = function (req, res) {
   if (!req.query?.url) {
     return res.status(204).send('url不能为空');
@@ -30,5 +30,14 @@ exports.pwdCheck = function (req, res) {
 exports.config = function (req, res) {
   AppConfig().then(async (json) => {
     return res.status(200).send(json);
+  })
+}
+
+exports.pwdCheck = function (req, res) {
+  if (!req.query?.pwd) {
+    return res.status(204);
+  }
+  AppConfig().then(async (json) => {
+    return res.status(200).send(req.query?.pwd == json.pwd);
   })
 }

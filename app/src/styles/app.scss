@@ -524,8 +524,8 @@ $backgroundImage: "../assets/2.webp";
         border-radius: 10px;
         box-shadow: 2px 2px 4px rgba(black, 0.25);
         height: 8vw;
-        max-height: 220px;
-        min-height: 200px;
+        max-height: 240px;
+        min-height: 240px;
         min-width: 180px;
         position: relative;
         transition: transform 250ms;
@@ -633,7 +633,8 @@ $backgroundImage: "../assets/2.webp";
           justify-content: space-between;
           padding: 20px;
           position: relative;
-          width: calc(100% - 40px);
+          width: 100%;
+          height: 100%;
           z-index: 2;
 
           .tool-card-content-header {
@@ -669,25 +670,25 @@ $backgroundImage: "../assets/2.webp";
 
       #movie-card-1 {
         .movie-card-content {
-          background: linear-gradient(to top, rgba($indigo, 0.4), transparent, rgba(black, 0.4));
+          background: linear-gradient(to top, rgba($indigo, 0.4), transparent, rgba(black, 1));
         }
       }
 
       #movie-card-2 {
         .movie-card-content {
-          background: linear-gradient(to top, rgba($violet, 0.4), transparent, rgba(black, 0.4));
+          background: linear-gradient(to top, rgba($violet, 0.4), transparent, rgba(black, 1));
         }
       }
 
       #movie-card-3 {
         .movie-card-content {
-          background: linear-gradient(to top, rgba($red, 0.4), transparent, rgba(black, 0.4));
+          background: linear-gradient(to top, rgba($red, 0.4), transparent, rgba(black, 1));
         }
       }
 
       #movie-card-4 {
         .movie-card-content {
-          background: linear-gradient(to top, rgba($green, 0.4), rgba(black, 0.1), rgba(black, 0.4));
+          background: linear-gradient(to top, rgba($green, 0.4), rgba(black, 0.1), rgba(black, 1));
         }
       }
 

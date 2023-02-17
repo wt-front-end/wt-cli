@@ -1,6 +1,6 @@
 <!--
  * @Date: 2023-02-03
- * @LastEditTime: 2023-02-15 17:32:15
+ * @LastEditTime: 2023-02-16 10:43:56
  * @LastEditors: xkloveme
  * @FileDesc:主页
  * @FilePath: /watone-cli/app/src/views/home.vue
@@ -17,8 +17,7 @@
           <div id="app-menu-content-header">
             <div class="app-menu-content-header-section">
               <div id="app-menu-info" class="info"><span class="time">{{ time }}</span><span class="weather"><i
-                    class="i-uil-sun"></i><span class="weather-temperature-value">71</span><span
-                    class="weather-temperature-unit">°C</span></span></div>
+                    :class="iconClass"></i><span class="weather-temperature-value">{{ temperature }}</span></span></div>
               <div class="reminder">
                 <span class="reminder-text">Extra
                   cool people meeting <span class="reminder-time">10AM</span></span>
@@ -114,7 +113,7 @@
                 class="menu-section-title-text">What's Apps?</span></div>
             <div class="menu-section-content">
               <div class="tool-card">
-                <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCa39MbOkUCXstCi/root/content)` }">
+                <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCt4b2Mv8Dvl4Chp/root/content)` }">
                 </div>
                 <div class="tool-card-content">
                   <div class="tool-card-content-header"><span class="tool-card-label">Translation</span><span
@@ -154,7 +153,7 @@
                 </div>
               </div>
               <div class="tool-card" @click="handleRouter('Shell')">
-                <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCt4b2Mv8Dvl4Chp/root/content)` }">
+                <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCa39MbOkUCXstCi/root/content)` }">
                 </div>
                 <div class="tool-card-content">
                   <div class="tool-card-content-header"><span class="tool-card-label">Terminal</span><span
@@ -209,6 +208,7 @@
 </template>
 
 <script setup>
+import tools from "../utils/common"
 const router = useRouter();
 function gotoHome () {
   router.push({ name: "Login" })
@@ -243,6 +243,15 @@ let time = ref('')
 let timer = setInterval(() => {
   time.value = getTime()
 })
+let iconClass = ref('')
+let temperature =ref('')
+async function init(){
+   let response = await fetch('http://en.wttr.in?format="%C,%t"');
+   const data = await response.json();
+   iconClass.value = tools.iconList[data.split(',')?.[0]] || 'i-uil-sun'
+   temperature.value = data.split(',')?.[1]
+}
+init()
 onBeforeUnmount(() => {
   clearInterval(timer)
   timer = null;
