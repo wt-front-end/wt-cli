@@ -1,9 +1,9 @@
 <!--
  * @Date: 2023-02-13
- * @LastEditTime: 2023-02-16 18:31:46
+ * @LastEditTime: 2023-02-18 22:12:14
  * @LastEditors: xkloveme
  * @FileDesc:笔记
- * @FilePath: /watone-cli/app/src/views/note.vue
+ * @FilePath: \wt-cli\app\src\views\note.vue
  * @Copyright © xkloveme
 -->
 <template>
@@ -26,23 +26,50 @@
       </Menubar>
 
       <div class="dock-window dock-advanced">
+        <!-- 分割线 -->
+        <Splitter :style="{ height: '100%', width: '100%' }">
+          <SplitterPanel :size="3" :minSize="0" v-show="showTree">
+            <div>
+              <Button @click="active = 0" class="p-button-sm p-0" aria-label="Finder"
+                :class="active == 0 ? 'p-button-raised p-button-text' : 'p-button-text'">
+                <i class="i-uil-books"></i>
+                <span class="px-1">文件夹</span>
+              </Button>
+              <Button @click="active = 1" class="p-button-sm p-0" aria-label="Git"
+                :class="active == 1 ? 'p-button-raised p-button-text' : 'p-button-text'">
+                <i class="i-uil-cloud-database-tree"></i>
+                <span class="px-1">Git</span>
+              </Button>
+            </div>
+            <!-- <Tree :value="nodes" /> -->
+            <TreeTable :value="nodes" >
+                <Column field="name" header="Name" :expander="true"></Column>
+                <Column field="type" header="Type"></Column>
+            </TreeTable>
+          </SplitterPanel>
+          <SplitterPanel>
+            <codemirror v-model="editInput" placeholder="请输入" :style="{ height: '100%', width: '100%' }" :autofocus="true"
+              :indent-with-tab="true" :tab-size="2" :extensions="extensions" />
+          </SplitterPanel>
+        </Splitter>
+
+
         <Dock :model="dockItems">
           <template #item="{ item }">
             <a href="#" class="p-dock-link" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
-              <img :alt="item.label" :src="item.icon"
-                style="width: 100%" />
+              <img :alt="item.label" :src="item.icon" style="width: 100%" />
             </a>
           </template>
         </Dock>
 
-        <Dialog v-model:visible="displayTerminal" header="Terminal" :breakpoints="{ '960px': '50vw' }"
-          :style="{ width: '40vw' }" :maximizable="true">
+        <Dialog v-model:visible="displayTerminal" header="Terminal" :breakpoints="{ '960px': '75vw', '640px': '100vw' }"
+          :style="{ width: '60vw' }" :maximizable="true">
           <Terminal welcomeMessage="Welcome to PrimeVue(cmd: 'date', 'greet {0}', 'random' and 'clear')"
             prompt="primevue $" />
         </Dialog>
 
-        <Dialog v-model:visible="displayFinder" header="Finder" :breakpoints="{ '960px': '50vw' }"
-          :style="{ width: '40vw' }" :maximizable="true">
+        <Dialog v-model:visible="displayFinder" header="Finder" :breakpoints="{ '960px': '75vw', '640px': '100vw' }"
+          :style="{ width: '60vw' }" :maximizable="true">
           <Tree :value="nodes" />
         </Dialog>
 
@@ -60,26 +87,28 @@
 </template>
 
 <script setup>
-// import { useToast } from 'primevue/usetoast';
-import NodeService from './notes/NodeService';
+import { Codemirror } from 'vue-codemirror'
+import { markdown } from '@codemirror/lang-markdown'
 import PhotoService from './notes/PhotoService';
-onMounted(() => {
-  photoService.value.getImages().then(data => images.value = data);
-  nodeService.value.getTreeNodes().then(data => nodes.value = data);
-  TerminalService.on('command', commandHandler);
-})
+import TerminalService from "primevue/terminalservice";
 
-onBeforeUnmount(() => {
-  TerminalService.off('command', commandHandler);
-})
+let active = ref(0)
+let editInput = ref('')
+let extensions = [markdown()]
+let showTree = ref(true)
 let displayFinder = ref(false);
 let displayTerminal = ref(false);
 let displayPhotos = ref(false);
-let nodeService = ref(new NodeService());
 let photoService = ref(new PhotoService());
 let images = ref();
 let nodes = ref();
-// let toast = useToast();
+let expandedKeys =ref({})
+async function getTree () {
+  let response = await fetch('/api/notes/tree');
+  const data = await response.json();
+  nodes.value = data
+  console.log(nodes.value,data,22)
+}
 let imgErrorPath = ref('https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png');
 let dockItems = ref([
   {
@@ -316,15 +345,26 @@ function commandHandler (text) {
 
   TerminalService.emit('response', response);
 }
+
+
+onMounted(() => {
+  images.value = photoService.value.getImages();
+  getTree()
+  TerminalService.on('command', commandHandler);
+})
+
+onBeforeUnmount(() => {
+  TerminalService.off('command', commandHandler);
+})
 </script>
 
 <style scoped lang="scss">
 ::v-deep(.dock-demo) {
   .dock-window {
     width: 100%;
-    height: calc(100vh - 43.54px);
+    height: calc(100vh - 42px);
     position: relative;
-    background-image: url("https://www.primefaces.org/wp-content/uploads/2021/02/primevue-blog.jpg");
+    background-color: antiquewhite;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

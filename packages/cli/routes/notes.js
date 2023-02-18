@@ -1,6 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
+const mime = require('mime');
+const crypto = require('crypto');
+
+
 /**
  * 获取项目根目录
  *
@@ -9,8 +13,7 @@ const os = require('os');
 
 function generateDirectoryTree (dir) {
   const files = fs.readdirSync(dir);
-  const tree = {};
-
+  const tree = [];
   files.forEach(file => {
     // 忽略隐藏文件和文件夹
     if (file.startsWith('.')) {
@@ -24,14 +27,17 @@ function generateDirectoryTree (dir) {
       if (!fs.existsSync(filePath)) {
         fs.mkdirSync(filePath);
       }
-      tree[file] = generateDirectoryTree(filePath);
+      const children = generateDirectoryTree(filePath);
+      tree.push({ key:Math.random().toString(36).slice(-8), name: file, type: 'Folder', children });
     } else {
-      tree[file] = filePath;
+      const mimeType = mime.getType(filePath);
+      tree.push({ key:Math.random().toString(36).slice(-8), name: file, type: mimeType || 'file' });
     }
   });
 
   return tree;
 }
+
 
 exports.getTree = function (req, res) {
   let dir = process.env[
@@ -44,6 +50,6 @@ exports.getTree = function (req, res) {
   !fs.existsSync(dir) && fs.mkdirSync(dir);
 
   const tree = generateDirectoryTree(dir);
-  console.log(JSON.stringify(tree, null, 2));
-  return res.status(200).send(tree);
+  // return res.status(200).send(tree);
+  res.status(200).json(tree);
 };
