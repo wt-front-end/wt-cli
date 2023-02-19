@@ -5,6 +5,10 @@ import createVitePlugins from "./vite";
 export default defineConfig(({ mode, command }) => {
   const env = loadEnv(mode, process.cwd());
   return {
+    //生产模式打包配置
+    build: {
+      outDir: '../client',//Specify the output directory (relative to project root).
+    },
     plugins: createVitePlugins(env),
     resolve: {
       // https://cn.vitejs.dev/config/#resolve-alias
@@ -29,7 +33,7 @@ export default defineConfig(({ mode, command }) => {
         },
         "/socket.io": {
           target: "http://localhost:9159/socket.io", // 本地node服务
-          ws:true,
+          ws: true,
           changeOrigin: true,
         },
       }

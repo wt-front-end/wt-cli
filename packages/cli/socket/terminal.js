@@ -47,7 +47,12 @@ module.exports = socket => {
         console.log('连接终端失败:', err.level)
         socket.emit('connect_fail', err.message)
       })
-    // .connect(authInfo)
+      .connect({
+        port: 9159,
+        host: "172.31.47.17",
+        username: 'lorialex',
+        password: '930315'
+      })
     // let ptyProcess = pty.spawn(shell, ['--login'], {
     //   name: 'xterm-color',
     //   cols: option.cols || 100,
