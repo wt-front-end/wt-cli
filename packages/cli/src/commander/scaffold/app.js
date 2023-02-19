@@ -12,7 +12,7 @@ module.exports = function (Application) {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
-  app.use(express.static(path.join(__dirname, '../../../../../app/dist')));
+  app.use(express.static(path.join(__dirname, '../../../../../client')));
   let port = 9159;
   let server = http.createServer(app);
   server.listen(port, () => {
