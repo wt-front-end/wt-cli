@@ -1,6 +1,6 @@
 <!--
  * @Date: 2023-02-03
- * @LastEditTime: 2023-02-16 10:43:56
+ * @LastEditTime: 2023-02-21 17:09:36
  * @LastEditors: xkloveme
  * @FileDesc:主页
  * @FilePath: /watone-cli/app/src/views/home.vue
@@ -18,9 +18,8 @@
             <div class="app-menu-content-header-section">
               <div id="app-menu-info" class="info"><span class="time">{{ time }}</span><span class="weather"><i
                     :class="iconClass"></i><span class="weather-temperature-value">{{ temperature }}</span></span></div>
-              <div class="reminder">
-                <span class="reminder-text">Extra
-                  cool people meeting <span class="reminder-time">10AM</span></span>
+              <div class="reminder" v-show="one">
+                <span class="reminder-text">{{one}} <span class="reminder-time">--{{origin}}</span></span>
               </div>
             </div>
             <div class="app-menu-content-header-section" @click="handleExit"><button id="sign-out-button"
@@ -35,7 +34,7 @@
                 class="quick-nav-item-label">应用</span></div>
             <div class="quick-nav-item clear-button" @click="goAnchor('links_id')"><span
                 class="quick-nav-item-label">链接</span></div>
-          </div><a id="youtube-link" class="clear-button" @click="handleRouter('Project')" target="_blank"><span>项目概览</span></a>
+          </div><a id="youtube-link" class="clear-button" @click="handleRouter('Setting')" target="_blank"><i class="i-uil-setting"></i><span>设置</span></a>
           <div id="weather-section" class="menu-section">
             <div class="rainbow-container" id="weather_id"><i class="rainbow"></i></div>
             <div class="menu-section-title"><span class="menu-section-title-text">最近的天气如何?</span></div>
@@ -112,7 +111,7 @@
             <div class="menu-section-title" id="app_id"><i class="i-uil-apps"></i><span
                 class="menu-section-title-text">What's Apps?</span></div>
             <div class="menu-section-content">
-              <div class="tool-card">
+              <div class="tool-card" @click="handleRouter('Translate')">
                 <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCt4b2Mv8Dvl4Chp/root/content)` }">
                 </div>
                 <div class="tool-card-content">
@@ -120,7 +119,7 @@
                       class="tool-card-name">翻译</span></div><i class="i-uil-slack-alt text-sky-500"></i>
                 </div>
               </div>
-              <div class="tool-card">
+              <div class="tool-card" @click="handleRouter('Note')">
                 <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCcDs4UvuOvnjZyN/root/content)` }">
                 </div>
                 <div class="tool-card-content">
@@ -245,11 +244,20 @@ let timer = setInterval(() => {
 })
 let iconClass = ref('')
 let temperature =ref('')
+let one  = ref('')
+let origin  = ref('')
 async function init(){
    let response = await fetch('http://en.wttr.in?format="%C,%t"');
    const data = await response.json();
    iconClass.value = tools.iconList[data.split(',')?.[0]] || 'i-uil-sun'
    temperature.value = data.split(',')?.[1]
+
+
+   let response1 = await fetch('https://api.xygeng.cn/one');
+   const data1 = await response1.json();
+   one.value = data1.data.content
+   origin.value = data1.data.origin
+  console.log(data1)
 }
 init()
 onBeforeUnmount(() => {

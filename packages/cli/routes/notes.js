@@ -28,10 +28,10 @@ function generateDirectoryTree (dir) {
         fs.mkdirSync(filePath);
       }
       const children = generateDirectoryTree(filePath);
-      tree.push({ key:Math.random().toString(36).slice(-8), name: file, type: 'Folder', children });
+      tree.push({ key:Math.random().toString(36).slice(-8),path:filePath, label: file,"icon": "pi pi-folder",  type: 'Folder', children });
     } else {
       const mimeType = mime.getType(filePath);
-      tree.push({ key:Math.random().toString(36).slice(-8), name: file, type: mimeType || 'file' });
+      tree.push({ key:Math.random().toString(36).slice(-8),path:filePath, label: file,"icon": "pi pi-fw pi-file",  type: mimeType || 'file' });
     }
   });
 

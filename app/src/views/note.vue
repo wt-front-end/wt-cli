@@ -1,9 +1,9 @@
 <!--
  * @Date: 2023-02-13
- * @LastEditTime: 2023-02-18 22:12:14
+ * @LastEditTime: 2023-02-19 21:15:17
  * @LastEditors: xkloveme
  * @FileDesc:笔记
- * @FilePath: \wt-cli\app\src\views\note.vue
+ * @FilePath: /watone-cli/app/src/views/note.vue
  * @Copyright © xkloveme
 -->
 <template>
@@ -41,11 +41,9 @@
                 <span class="px-1">Git</span>
               </Button>
             </div>
-            <!-- <Tree :value="nodes" /> -->
-            <TreeTable :value="nodes" >
-                <Column field="name" header="Name" :expander="true"></Column>
-                <Column field="type" header="Type"></Column>
-            </TreeTable>
+            <Tree selectionMode="single" v-model:selectionKeys="selectedKey" :value="nodes" expandedIcon="folder"
+              collapsedIcon="pi pi-folder" :filter="true" filterMode="strict" @node-select="onNodeSelect"
+              @node-unselect="onNodeUnselect" />
           </SplitterPanel>
           <SplitterPanel>
             <codemirror v-model="editInput" placeholder="请输入" :style="{ height: '100%', width: '100%' }" :autofocus="true"
@@ -64,8 +62,9 @@
 
         <Dialog v-model:visible="displayTerminal" header="Terminal" :breakpoints="{ '960px': '75vw', '640px': '100vw' }"
           :style="{ width: '60vw' }" :maximizable="true">
-          <Terminal welcomeMessage="Welcome to PrimeVue(cmd: 'date', 'greet {0}', 'random' and 'clear')"
-            prompt="primevue $" />
+          <!-- <Terminal welcomeMessage="Welcome to PrimeVue(cmd: 'date', 'greet {0}', 'random' and 'clear')"
+              prompt="primevue $" /> -->
+          <VMdPreview :text="editInput"></VMdPreview>
         </Dialog>
 
         <Dialog v-model:visible="displayFinder" header="Finder" :breakpoints="{ '960px': '75vw', '640px': '100vw' }"
@@ -92,6 +91,13 @@ import { markdown } from '@codemirror/lang-markdown'
 import PhotoService from './notes/PhotoService';
 import TerminalService from "primevue/terminalservice";
 
+import VMdPreview from '@kangc/v-md-editor/lib/preview';
+import '@kangc/v-md-editor/lib/style/preview.css';
+import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
+import '@kangc/v-md-editor/lib/theme/style/github.css';
+import hljs from 'highlight.js';
+VMdPreview.use(githubTheme, { Hljs: hljs });
+
 let active = ref(0)
 let editInput = ref('')
 let extensions = [markdown()]
@@ -102,12 +108,40 @@ let displayPhotos = ref(false);
 let photoService = ref(new PhotoService());
 let images = ref();
 let nodes = ref();
-let expandedKeys =ref({})
+let selectedKey = ref(null)
+async function onNodeSelect (node) {
+  console.log("🐛 ~ file: note.vue:111 ~ onNodeSelect ~ node", node);
+  window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
+
+window.requestFileSystem(window.TEMPORARY, 1024 * 1024, function(fs) {
+  fs.root.getFile(node.path, {}, function(fileEntry) {
+    fileEntry.file(function(file) {
+      const reader = new FileReader();
+      reader.onloadend = function() {
+        console.log(reader.result); // 输出文件内容
+      };
+      reader.readAsText(file);
+    });
+  });
+}, function(error) {
+  console.error(error);
+});
+  // const reader = new FileReader();
+  // const text =await reader.readAsText(node.path);
+  // const sandboxed_dir = await window.getSandboxedFileSystem();
+  // const new_file = await sandboxed_dir.getFile(node.path, {create: true});
+  // console.log("🐛 ~ file: note.vue:116 ~ onNodeSelect ~ new_file", text);
+  // this.$toast.add({severity:'success', summary: 'Node Selected', detail: node.label, life: 3000});
+}
+function onNodeUnselect (node) {
+  console.log("🐛 ~ file: note.vue:115 ~ onNodeUnselect ~ node", node);
+  // this.$toast.add({severity:'success', summary: 'Node Unselected', detail: node.label, life: 3000});
+}
 async function getTree () {
   let response = await fetch('/api/notes/tree');
   const data = await response.json();
   nodes.value = data
-  console.log(nodes.value,data,22)
+  console.log(nodes.value, data, 22)
 }
 let imgErrorPath = ref('https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png');
 let dockItems = ref([
@@ -371,6 +405,11 @@ onBeforeUnmount(() => {
     z-index: 1;
   }
 
+  .p-tree {
+    border: 0px solid #fff;
+    padding: 0rem;
+  }
+
   .p-dock {
     z-index: 1000;
   }
@@ -409,5 +448,4 @@ onBeforeUnmount(() => {
       z-index: 2;
     }
   }
-}
-</style>
+}</style>

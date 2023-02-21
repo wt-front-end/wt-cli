@@ -25,6 +25,12 @@ export const constantRoutes = [
     meta: { title: "主页" }
   },
   {
+    path: "/setting",
+    component: () => import("@/views/setting.vue"),
+    name: "Setting",
+    meta: { title: "设置" }
+  },
+  {
     path: "/project",
     component: () => import("@/views/project.vue"),
     name: "Project",
