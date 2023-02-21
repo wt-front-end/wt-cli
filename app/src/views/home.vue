@@ -1,6 +1,6 @@
 <!--
  * @Date: 2023-02-03
- * @LastEditTime: 2023-02-21 17:09:36
+ * @LastEditTime: 2023-02-21 18:09:48
  * @LastEditors: xkloveme
  * @FileDesc:主页
  * @FilePath: /watone-cli/app/src/views/home.vue
@@ -18,8 +18,8 @@
             <div class="app-menu-content-header-section">
               <div id="app-menu-info" class="info"><span class="time">{{ time }}</span><span class="weather"><i
                     :class="iconClass"></i><span class="weather-temperature-value">{{ temperature }}</span></span></div>
-              <div class="reminder" v-show="one">
-                <span class="reminder-text">{{one}} <span class="reminder-time">--{{origin}}</span></span>
+              <div class="reminder">
+                <span class="reminder-text" v-show="one">{{ one }} <span class="reminder-time">--{{ origin }}</span></span>
               </div>
             </div>
             <div class="app-menu-content-header-section" @click="handleExit"><button id="sign-out-button"
@@ -34,7 +34,8 @@
                 class="quick-nav-item-label">应用</span></div>
             <div class="quick-nav-item clear-button" @click="goAnchor('links_id')"><span
                 class="quick-nav-item-label">链接</span></div>
-          </div><a id="youtube-link" class="clear-button" @click="handleRouter('Setting')" target="_blank"><i class="i-uil-setting"></i><span>设置</span></a>
+          </div><a id="youtube-link" class="clear-button" @click="handleRouter('Setting')" target="_blank"><i
+              class="i-uil-setting"></i><span>设置</span></a>
           <div id="weather-section" class="menu-section">
             <div class="rainbow-container" id="weather_id"><i class="rainbow"></i></div>
             <div class="menu-section-title"><span class="menu-section-title-text">最近的天气如何?</span></div>
@@ -81,25 +82,29 @@
             <div class="menu-section-title" id="tools_id"><i class="i-uil-briefcase-alt"></i><span
                 class="menu-section-title-text">Get it tools!</span></div>
             <div class="menu-section-content">
-              <div class="restaurant-card background-image" @click="handleRouter('Json')" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhBrJam-help9UezO/root/content)` }">
+              <div class="restaurant-card background-image" @click="handleRouter('Json')"
+                :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhBrJam-help9UezO/root/content)` }">
                 <div class="restaurant-card-content">
                   <div class="restaurant-card-content-items"><span class="restaurant-card-title">JSON</span><span
                       class="restaurant-card-desc">最好的JSON 格式化工具</span></div>
                 </div>
               </div>
-              <div class="restaurant-card background-image" @click="handleRouter('Html')"  :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhBs-vum1YCsYKacN/root/content)` }">
+              <div class="restaurant-card background-image" @click="handleRouter('Html')"
+                :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhBs-vum1YCsYKacN/root/content)` }">
                 <div class="restaurant-card-content">
                   <div class="restaurant-card-content-items"><span class="restaurant-card-title">HTML</span><span
                       class="restaurant-card-desc">在线编写HTML</span></div>
                 </div>
               </div>
-              <div class="restaurant-card background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhByphWP_Xfn9L3um/root/content)` }">
+              <div class="restaurant-card background-image"
+                :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhByphWP_Xfn9L3um/root/content)` }">
                 <div class="restaurant-card-content">
                   <div class="restaurant-card-content-items"><span class="restaurant-card-title">TIME</span><span
                       class="restaurant-card-desc">时间和时间戳转换</span></div>
                 </div>
               </div>
-              <div class="restaurant-card background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhB3f8xOSgYGOKgo2/root/content)` }">
+              <div class="restaurant-card background-image"
+                :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhB3f8xOSgYGOKgo2/root/content)` }">
                 <div class="restaurant-card-content">
                   <div class="restaurant-card-content-items"><span class="restaurant-card-title">UNIT</span><span
                       class="restaurant-card-desc">长度、面积、气压等单位转换</span></div>
@@ -112,7 +117,8 @@
                 class="menu-section-title-text">What's Apps?</span></div>
             <div class="menu-section-content">
               <div class="tool-card" @click="handleRouter('Translate')">
-                <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCt4b2Mv8Dvl4Chp/root/content)` }">
+                <div class="tool-card-background background-image"
+                  :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCt4b2Mv8Dvl4Chp/root/content)` }">
                 </div>
                 <div class="tool-card-content">
                   <div class="tool-card-content-header"><span class="tool-card-label">Translation</span><span
@@ -120,7 +126,8 @@
                 </div>
               </div>
               <div class="tool-card" @click="handleRouter('Note')">
-                <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCcDs4UvuOvnjZyN/root/content)` }">
+                <div class="tool-card-background background-image"
+                  :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCcDs4UvuOvnjZyN/root/content)` }">
                 </div>
                 <div class="tool-card-content">
                   <div class="tool-card-content-header"><span class="tool-card-label">Note</span><span
@@ -128,7 +135,8 @@
                 </div>
               </div>
               <div class="tool-card">
-                <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhChCpZe2N8lBhq5J/root/content)` }">
+                <div class="tool-card-background background-image"
+                  :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhChCpZe2N8lBhq5J/root/content)` }">
                 </div>
                 <div class="tool-card-content">
                   <div class="tool-card-content-header"><span class="tool-card-label">Keyboard</span><span
@@ -136,7 +144,8 @@
                 </div>
               </div>
               <div class="tool-card" @click="handleRouter('Chatgpt')">
-                <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCn-AXQgChjEAiWy/root/content)` }">
+                <div class="tool-card-background background-image"
+                  :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCn-AXQgChjEAiWy/root/content)` }">
                 </div>
                 <div class="tool-card-content">
                   <div class="tool-card-content-header"><span class="tool-card-label">ChatGPT</span><span
@@ -144,7 +153,8 @@
                 </div>
               </div>
               <div class="tool-card">
-                <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCrkDSSirrrja4fb/root/content)` }">
+                <div class="tool-card-background background-image"
+                  :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCrkDSSirrrja4fb/root/content)` }">
                 </div>
                 <div class="tool-card-content">
                   <div class="tool-card-content-header"><span class="tool-card-label">Qrcode</span><span
@@ -152,7 +162,8 @@
                 </div>
               </div>
               <div class="tool-card" @click="handleRouter('Shell')">
-                <div class="tool-card-background background-image" :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCa39MbOkUCXstCi/root/content)` }">
+                <div class="tool-card-background background-image"
+                  :style="{ 'background-image': `url(https://api.onedrive.com/v1.0/shares/s!Apf952DEby7RhCa39MbOkUCXstCi/root/content)` }">
                 </div>
                 <div class="tool-card-content">
                   <div class="tool-card-content-header"><span class="tool-card-label">Terminal</span><span
@@ -166,7 +177,8 @@
                 class="menu-section-title-text">Link it!</span></div>
             <div class="scrollable-component menu-section-content">
               <div id="movie-card-1" class="movie-card" @click="gotoUrl('https://wt-front-end.github.io/wt-docs/')">
-                <div class="movie-card-background background-image" :style="{ 'background-image': `url(https://www.helloimg.com/images/2023/02/15/oFxVdA.webp)` }">
+                <div class="movie-card-background background-image"
+                  :style="{ 'background-image': `url(https://www.helloimg.com/images/2023/02/15/oFxVdA.webp)` }">
                 </div>
                 <div class="movie-card-content">
                   <div class="movie-card-info"><span class="movie-card-title">前端文档</span><span
@@ -175,7 +187,8 @@
                 </div>
               </div>
               <div id="movie-card-2" class="movie-card" @click="gotoUrl('https://www.jixiaokang.com/black-tool/')">
-                <div class="movie-card-background background-image" :style="{ 'background-image': `url(https://www.helloimg.com/images/2023/02/15/oFx7XX.webp)` }">
+                <div class="movie-card-background background-image"
+                  :style="{ 'background-image': `url(https://www.helloimg.com/images/2023/02/15/oFx7XX.webp)` }">
                 </div>
                 <div class="movie-card-content">
                   <div class="movie-card-info"><span class="movie-card-title">生成表格</span><span
@@ -183,15 +196,17 @@
                 </div>
               </div>
               <div id="movie-card-3" class="movie-card" @click="handleProject">
-                <div class="movie-card-background background-image" :style="{ 'background-image': `url(https://www.helloimg.com/images/2023/02/15/oFxI8M.webp)` }">
+                <div class="movie-card-background background-image"
+                  :style="{ 'background-image': `url(https://www.helloimg.com/images/2023/02/15/oFxI8M.webp)` }">
                 </div>
                 <div class="movie-card-content">
                   <div class="movie-card-info"><span class="movie-card-title">项目看板</span><span
                       class="movie-card-desc">接入项目发布信息</span></div><i class="i-uil-comparison text-yellow-200"></i>
                 </div>
               </div>
-              <div id="movie-card-4" class="movie-card"  @click="gotoUrl('https://github.com/wt-front-end/wt-cli')">
-                <div class="movie-card-background background-image" :style="{ 'background-image': `url(https://www.helloimg.com/images/2023/02/15/oFxQcY.webp)` }">
+              <div id="movie-card-4" class="movie-card" @click="gotoUrl('https://github.com/wt-front-end/wt-cli')">
+                <div class="movie-card-background background-image"
+                  :style="{ 'background-image': `url(https://www.helloimg.com/images/2023/02/15/oFxQcY.webp)` }">
                 </div>
                 <div class="movie-card-content">
                   <div class="movie-card-info"><span class="movie-card-title">项目地址</span><span
@@ -243,20 +258,20 @@ let timer = setInterval(() => {
   time.value = getTime()
 })
 let iconClass = ref('')
-let temperature =ref('')
-let one  = ref('')
-let origin  = ref('')
-async function init(){
-   let response = await fetch('http://en.wttr.in?format="%C,%t"');
-   const data = await response.json();
-   iconClass.value = tools.iconList[data.split(',')?.[0]] || 'i-uil-sun'
-   temperature.value = data.split(',')?.[1]
+let temperature = ref('')
+let one = ref('')
+let origin = ref('')
+async function init () {
+  let response = await fetch('http://en.wttr.in?format="%C,%t"');
+  const data = await response.json();
+  iconClass.value = tools.iconList[data.split(',')?.[0]] || 'i-uil-sun'
+  temperature.value = data.split(',')?.[1]
 
 
-   let response1 = await fetch('https://api.xygeng.cn/one');
-   const data1 = await response1.json();
-   one.value = data1.data.content
-   origin.value = data1.data.origin
+  let response1 = await fetch('https://api.xygeng.cn/one');
+  const data1 = await response1.json();
+  one.value = data1.data.content
+  origin.value = data1.data.origin
   console.log(data1)
 }
 init()
@@ -267,6 +282,4 @@ onBeforeUnmount(() => {
 // onMounted(() => {});
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
