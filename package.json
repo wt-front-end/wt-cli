@@ -1,6 +1,6 @@
 {
   "name": "@watone/wt-cli",
-  "version": "1.2.13",
+  "version": "1.2.14",
   "description": "watone tools",
   "bin": {
     "watone": "bin/watone-cli.js",
